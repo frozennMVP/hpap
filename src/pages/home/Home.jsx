@@ -25,7 +25,7 @@ const Input = styled('input')({
 
 const fetchData = () => {
     return axios
-      .get(`http://localhost:3004/items`)
+      .get(`https://hpap-spare-pants.herokuapp.com/items`)
       .then(response => response.data);
   };
 

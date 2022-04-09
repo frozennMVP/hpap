@@ -47,7 +47,7 @@ const Personal = () => {
   const handleChangePersonal = async(e) => {
     e.preventDefault()
 
-    const res = await axios.patch(`https://hpap-spare-pants.herokuapp.com/api/users/${user.id}`, {
+    const res = await axios.patch(`https://hpap-spare-pants.herokuapp.com/users/${user.id}`, {
         login,
         email,
         surname,

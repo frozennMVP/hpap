@@ -39,7 +39,7 @@ const Review = () => {
     e.preventDefault();
     try {
       const res = await axios
-        .post(`https://hpap-spare-pants.herokuapp.com/api/message`, {
+        .post(`https://hpap-spare-pants.herokuapp.com/message`, {
           userName: name,
           userEmail: email,
           userText: text,

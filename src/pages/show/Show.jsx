@@ -19,7 +19,7 @@ import { Context } from "../../context/Context";
 
 const fetchData = () => {
   return axios
-    .get(`https://hpap-spare-pants.herokuapp.com/api/items`)
+    .get(`https://hpap-spare-pants.herokuapp.com/items`)
     .then((response) => response.data);
 };
 
