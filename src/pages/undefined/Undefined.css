@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Undefined{
+    width: 100%;
+    margin: 0px 0px 70px 0px;
+    text-align: center;
+}
+.pageIsNotFound{
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 20px;
+}
+.pageIsNotFoundCause{
+    opacity: 0.8;
+    font-weight: 500;
+}
+.goToHomePage{
+    margin: 20px 0;
+    border-radius: 10px;
+    padding: 8px 20px;
+}
+.goToHomeWithLink{
+    color: white;
+    text-decoration: none;
+}
+.goToHomeWithLink:hover {
+    color: rgb(212, 208, 200);
+}
+
+
+
+
+
+@media(max-width: 600px) {
+    .undefinedPageImg {
+        width: 90%;
+    }
+}

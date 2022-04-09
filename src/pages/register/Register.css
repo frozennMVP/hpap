@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.register {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.register-main-title{
+    display: block;
+    font-family: AktivGrotesk-Regular;
+    font-size:1.525rem;
+    letter-spacing: .0125rem;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    padding-top: 16px;
+}
+.info-register{
+    width: 20%;
+}
+.allPlus{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+}
+.form-register{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 35px auto;
+    text-align: center;
+}
+.inputText{
+    width: 35% !important;
+    margin: 15px 15px !important;  
+}
+.registrBtn{
+    width: 30%;
+    text-align: center;
+    margin: 50px 0;
+    background-color: black;
+}
+.reg-secure{
+    margin: 15px 0;
+}
+
+
+
+
+@media(max-width: 800px) {
+    .info-register{
+        width: 40%;
+        margin: 10px 0;
+    }
+    .description-register{
+        text-align: center;
+    }
+    .registrBtn{
+        width: 65%;
+    }
+}
+
+
+
+@media(max-width: 650px){
+    .inputText {
+        width: 80% !important;
+    }
+}
+
+@media(max-width: 500px){
+    .inputText {
+        width: 80% !important;
+    }
+    .registrBtn{
+        width: 65%;
+    }
+}
+
+@media(max-width: 400px){ 
+    .inputText{
+        width: 100% !important;
+    }
+    .info-register{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .registrBtn{
+        width: 75%;
+    }
+}

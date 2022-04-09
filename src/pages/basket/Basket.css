@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Basket{
+    width: 100%;
+}
+.UnderBasket{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.BasketSide{
+    width: 70%;
+
+}
+.itemInBasket{
+    width: 100%;
+}
+.itemForDisplay{
+    display: flex;
+    align-self: center;
+}
+.basketSideInfo{
+    padding: 10px;
+}
+.itemUrlInBasket{
+    width: 30%;
+    padding: 15px;
+}
+.basketTitle{
+    margin: 40px;
+}
+.payment{
+    width: 25%;
+    background: #dfdfdf;
+}

@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.NewAdressForm{
+    width: 100%;
+}
+.AlreadyHavedAdress{
+    width: 40%;
+    margin: 50px;
+    border: 2px solid gray;
+    padding: 15px 30px;
+}
+.infoAdressWarm{
+    margin: 50px;
+}
+.goBackToProfilePage{
+    color: white !important;
+    background-color: black !important;
+    margin: 10px 20px !important;
+}
+
+
+
+
+
+
+@media(max-width: 1000px){
+    .AlreadyHavedAdress{
+        width: 80%;
+    }
+}
+
+
+@media(max-width: 500px){
+    .AlreadyHavedAdress{
+        margin: 15px;
+    }
+}

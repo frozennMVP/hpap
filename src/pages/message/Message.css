@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.MessageUnder{
+    width: 40%;
+    border: 1.5px solid gray;
+    border-radius: 10px;
+    margin: 20px 30px;
+    padding: 10px;
+}
+.Message-content{
+    display: flex;
+    justify-content: space-between;
+}

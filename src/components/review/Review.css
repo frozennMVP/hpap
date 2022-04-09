@@ -1,0 +1,38 @@
+.Review-card{
+    width: 90%;
+    height: 40vh;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.review-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap ;
+}
+.review-text{
+    width: 45%;
+}
+.review-btn{
+    width: 20%;
+}
+
+
+@media (max-width: 480px) {
+    .review-text{
+        width: 85%;
+    }
+    .review-btn{
+        width: 50%;
+        margin: 25px 0;
+    }
+    .Review-card{
+        height: 55vh;
+    }
+
+}
+
+
+

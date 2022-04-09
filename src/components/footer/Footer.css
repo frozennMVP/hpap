@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333333;
+    padding: 50px 0;
+}
+.footer-one{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-info{
+    display: flex;
+}
+.h4-link{
+    text-decoration: none;
+    font: 600 18px/22px "Open Sans", sans-serif;
+    color: white;
+    margin: 0 0 13px 0;
+    cursor: pointer;
+    
+}
+.footer-links{
+    width: 70%;
+}
+.p-a{
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px rgb(0 0 0 / 40%);
+    color: #777777;
+}
+.p-a:hover {
+    color: white;
+}
+.h4-link:hover {
+    color: white;
+    transition: 0.1s linear;
+}
+
+
+.mobileFooter{
+    display: none;
+}
+
+.css-i4bv87-MuiSvgIcon-root{
+    color: white;
+}
+
+@media(max-width: 900px){
+    .footer-one{
+        display: none;
+    }
+    .mobileFooter{
+        display: block;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .mobileAccordion{
+        background-color: #333333;
+    }
+    .footer-two {
+        margin: 30px auto;
+    }
+}

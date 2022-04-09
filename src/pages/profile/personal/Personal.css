@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.AdressInput{
+    width: 40%;
+    margin: 10px 35px !important;
+}
+.pesonalForm{
+    width: 100%;
+}
+.formAddAdress{
+    width: 60%;
+}
+.outlinedBtnAdd{
+    color: white !important;
+    background-color: black !important;
+    margin: 30px !important;
+}
+.inputTextPersonal{
+    width: 30% !important;
+}
+.PesonalWidth{
+    width: 50%;
+    margin: 50px;
+    border: 2px solid gray;
+    padding: 15px 30px;
+}
+
+
+
+
+@media(max-width: 1200px){
+    .formAddAdress{
+        width: 80%;
+    }
+}
+
+
+@media(max-width: 900px){
+    .formAddAdress{
+        width: 100%;
+    }
+}
+
+@media(max-width: 600px){
+    .formAddAdress{
+        width: 100%;
+    }
+    .AdressInput{
+        width: 80%;
+    }
+}

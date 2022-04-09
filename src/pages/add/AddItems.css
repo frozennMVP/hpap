@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.AddItems{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.addPostForm{
+    width: 55%;
+}
+.addNewPostDisplay{
+    display: flex;
+    justify-content: space-around;
+}
+.addPost{
+    width: 50%;
+    margin: 10px 20px !important;
+}
+.addPostTitle{
+    text-align: center;
+}
+.illustrSide{
+    width: 30%;
+}
+.illustration{
+    width: 100%;
+}
+
+
+@media(max-width: 1000px){
+    .AddItems{
+        display: flex;
+        flex-direction: column;
+    }
+    .addPost{
+        width: 100%;
+    }
+    .illustrSide{
+        width: 70%;
+    }
+}
+
+
+@media(max-width: 500px){
+    .addPostForm{
+        width: 90%;
+    }
+    .illustrSide{
+        width: 70%;
+        margin: 20px 0;
+    }
+}

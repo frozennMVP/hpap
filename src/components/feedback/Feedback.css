@@ -1,0 +1,27 @@
+.Feedback-content{
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+}
+.feedback-img{
+    width: 30%;
+}
+.feedback-forms{
+    width: 60%;
+    text-align: center;
+}
+
+
+@media (max-width: 480px) {
+    .Feedback-content{
+        width: 100%;
+    }
+    .feedback-img{
+        width: 60%;
+    }
+    
+}

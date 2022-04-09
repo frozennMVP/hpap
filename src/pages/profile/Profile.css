@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.AdminGoBack{
+    text-decoration: none;
+    color: black;
+    align-self: center;
+}
+.informationList{
+    width: 30%;
+    border: 1px solid gray;
+    padding: 10px 15px;
+    margin: 30px 20px;
+    display: flex;
+    border-radius: 7px;
+}
+.gmailAccText{
+    margin: 30px 20px;
+}
+.informationIcon{
+    color: #777777;
+}
+.informationTitle{
+    margin: 5px 20px;
+}
+.toAddNewAdress{
+    text-decoration: none;
+    color: black;
+}
+.toAddNewAdress:hover{
+    color: rgb(30, 29, 29);
+}

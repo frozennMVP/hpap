@@ -1,0 +1,246 @@
+{
+  "users": [
+    {
+      "email": "zamirbekov@mail.ru",
+      "password": "$2a$10$dNDg0Rran2imW4tDAQFt3uFO2ZxuJLXgn5sW4C3200l6NjWPk9jAa",
+      "login": "azamat",
+      "surname": "azamat",
+      "age": "4567-03-12",
+      "gender": "Мужчина",
+      "number": "+996700777777",
+      "id": 1,
+      "status": true
+    },
+    {
+      "email": "raihan@gmail.com",
+      "password": "$2a$10$A/W5mvnGqmoBbm7KsNu/h.3RFOk43gKxG.ULx.P2gbDwUNbPbzufy",
+      "login": "ьшкдф",
+      "surname": "выавпартппвы",
+      "age": "0452-03-04",
+      "gender": "Мужчина",
+      "number": "2345423434",
+      "id": 2
+    },
+    {
+      "email": "azamat@gmail.com",
+      "password": "$2a$10$8AJIZaumJRHu8mNWVIkXCe5gCSjB5wWwql8Xdt1GTk8IDxutwRub2",
+      "login": "aza",
+      "surname": "mat",
+      "age": "2004-02-13",
+      "gender": "Мужчина",
+      "number": "1456789",
+      "id": 3
+    },
+    {
+      "email": "uraimova@gmail.com",
+      "password": "$2a$10$xvUOs.ycgBzE6wjD2Q79A.oYVXRPhuLv9/X67uiCqza4dOGIHRjLy",
+      "login": "райхан",
+      "surname": "ураимова",
+      "age": "10202-02-19",
+      "gender": "Женщина",
+      "number": "234543цй12",
+      "id": 4
+    },
+    {
+      "email": "zamirbekovmirlan@mail.ru",
+      "password": "$2a$10$mjrfQNjHnAbmnneaw9Xu0.M59Crut3SwOme/5zFE6qcybCdz9Jiwu",
+      "login": "mirlan",
+      "surname": "zamirbekov",
+      "age": "2004-02-13",
+      "gender": "Мужчина",
+      "number": "0709263648",
+      "id": 5
+    },
+    {
+      "email": "emirchick@email.ru",
+      "password": "$2a$10$Be57aBUkANJdo3hnniP.e.tlnXtbvi4hcwW0xSlxPHBCpFFlZQWey",
+      "login": "emirchick",
+      "surname": "zamirbekov",
+      "age": "2004-02-13",
+      "gender": "",
+      "number": "0709263684",
+      "id": 6,
+      "country": "Кыргызстан",
+      "city": "Бишкек",
+      "adress": "Баха",
+      "index": "123456",
+      "additional": ""
+    },
+    {
+      "email": "zamirbekovemir@gmail.com",
+      "password": "$2a$10$pBSgTLZJ/QtNqYjZO4HkAuANU8izRgiLzjQW2UNztzT4/URnRcN9O",
+      "login": "emirchik",
+      "surname": "zamirbekov",
+      "age": "2004-02-13",
+      "gender": "Мужчина",
+      "number": "0709263684",
+      "id": 7
+    },
+    {
+      "email": "zamir@gmail.com",
+      "password": "$2a$10$4SxOzdJZN7kBJMLveN3FuuWv.yRuZB.aJhclVa/arGVyEoInQHkzu",
+      "login": "mirlan",
+      "surname": "zamirbekov",
+      "age": "2004-02-13",
+      "gender": "Мужчина",
+      "number": "0709263684",
+      "id": 8
+    },
+    {
+      "email": "mir@gmail.com",
+      "password": "$2a$10$aj/4zeFQPZdBWiRucCcBV.sDC5jeO5sEwMGe7lBmv1e/ojTBUzopi",
+      "login": "ььь",
+      "surname": "ббб",
+      "age": "0567-04-23",
+      "gender": "Мужчина",
+      "number": "йцукенгшщш76543",
+      "id": 9
+    },
+    {
+      "email": "emir@gmail.com",
+      "password": "$2a$10$HaPG.pm..JS04AK4uLVeruawhXuYPCrcaZywW2WqnXpTXZOHqkYD2",
+      "login": "mirlan",
+      "surname": "zamirekov",
+      "age": "20323-02-13",
+      "gender": "Мужчина",
+      "number": "23456788765432",
+      "id": 10
+    },
+    {
+      "email": "qwerty@gmail.com",
+      "password": "$2a$10$X7kHq0FdYdbO5Q5mFhwf4urvFqB2YqUgv/vIte3tmXiOVFIbe11RK",
+      "login": "3rfvdcssdvsa",
+      "surname": "vsavavsv",
+      "age": "0024-03-12",
+      "gender": "Мужчина",
+      "number": "12343123",
+      "id": 11
+    },
+    {
+      "email": "asdsa@gmail.com",
+      "password": "$2a$10$94F0/tq3q0zLOdJ4COr1ueZuZKqBE70IP4uVfzGGYpg0YeceqM92.",
+      "login": "sadasd",
+      "surname": "asfa",
+      "age": "",
+      "gender": "Мужчина",
+      "number": "asff",
+      "id": 12
+    },
+    {
+      "email": "azamat02@gmail.com",
+      "password": "$2a$10$dmIlNSJ2XklHn04Z9EXj3eEtCKXDHRwx0guw8jra4q2Epjaf2jR2.",
+      "login": "ьшкдф",
+      "surname": "фывафаф",
+      "age": "2004-02-13",
+      "gender": "Мужчина",
+      "number": "234234234",
+      "id": 13
+    },
+    {
+      "email": "mirbek@gmail.com",
+      "password": "$2a$10$FS85njSyshUKF19tHlhb0u1K/0RSXfWS42b/wIzKhMD8IpjEijLdW",
+      "login": "werfg",
+      "surname": "sdfg",
+      "age": "0456-03-12",
+      "gender": "",
+      "number": "12345234",
+      "id": 14
+    }
+  ],
+  "items": [
+    {
+      "name": "Оплетки на руль",
+      "description": "Оплетка для рулевого колеса — один из самых простых и давних способов тюнинговать руль автомобиля. Помимо декоративной функции оплетка выполняет и практические задачи: защищает покрытие руля, утолщает руль, снижает проскальзывание рук.",
+      "price": 39,
+      "url": "https://ae04.alicdn.com/kf/H5c653bcf869147f5b220e679f203bb52W/-.png",
+      "id": "1"
+    },
+    {
+      "name": "айти",
+      "description": "Самый востребованный вид професии",
+      "price": 30,
+      "url": "http://localhost:3000/static/media/addIllustr.5035f8270aab26862ad0.webp",
+      "id": "zNTFKD6"
+    },
+    {
+      "name": "матор",
+      "price": 44,
+      "description": "Дви́гатель — устройство, преобразующее какой-либо вид энергии в механическую работу. Термин мотор заимствован в первой половине XIX века из немецкого языка и преимущественно им называют электрические двигатели и двигатели внутреннего сгорания.",
+      "url": "https://motorist.expert/wp-content/uploads/2018/06/motornaya-ustonovka-d4bh-650x478.png",
+      "id": 3
+    },
+    {
+      "name": "Iphone",
+      "description": "Согласно свежей информации, iPhone 14 Pro и iPhone 14 Pro Max не получат новый 48-мегапиксельный датчик изображения, как утверждали многочисленные источники. Якобы он продолжит использовать 12-мегапиксельный датчик Sony IMX703, который установлен в iPhone 13 Pro и Pro Max.",
+      "price": 12,
+      "url": "https://png2png.com/wp-content/uploads/2021/12/iphone-14-concept-leak.png",
+      "id": 4
+    },
+    {
+      "name": "xs max",
+      "description": "Преимущества Xs – технология Super Retina HD, что предполагает более качественную, четкую картинку. В свою очередь у Xr - больше диагональ 6,1ʺ (5,8ʺ у Xs), но ниже разрешение и количество пикселей на дюйм, отсутствие технологии 3D Touch, привычной большинству пользователей. Дополнительные параметры.",
+      "price": 34,
+      "url": "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-xs-max-gold.png",
+      "id": 5
+    },
+    {
+      "name": "масло",
+      "price": 22,
+      "description": "Моторные масла — масла, применяемые главным образом для снижения трения между движущимися деталями поршневых и роторных двигателей внутреннего сгорания. Все современные моторные масла состоят из базовых масел и улучшающих их свойства присадок.",
+      "url": "https://shop.ravenol.su/wa-data/public/shop/products/09/00/9/images/111/111.745.png",
+      "id": 7
+    },
+    {
+      "name": "xs",
+      "description": "At a Glance. Apple's iPhone XS and iPhone XS Max feature 5.8 and 6.5-inch display sizes, upgraded cameras, faster A12 Bionic chips, better displays, faster Face ID, and up to 512GB storage.",
+      "price": 45,
+      "url": "https://creative-it.ie/wp-content/uploads/2019/10/iphone-xs-silver.png",
+      "id": 9
+    },
+    {
+      "name": "vs code",
+      "price": 34,
+      "description": "Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/800px-Visual_Studio_Code_1.35_icon.svg.png",
+      "id": 10
+    },
+    {
+      "name": "руль на машину",
+      "price": 33,
+      "description": "Для этого нужно выбрать пункт «Оборудование и звук» в панели управления, затем открыть «Устройства и принтеры», в появившемся списке найти наш манипулятор и вызвать контекстное меню нажатием правой кнопки мыши. В открывшемся меню выбираем «Параметры» и «Откалибровать».",
+      "url": "http://www.logitech.com/repository/2258/png/16963.1.0.png",
+      "id": 11
+    },
+    {
+      "name": "mui",
+      "price": 33,
+      "description": "MUI provides a robust, customizable, and accessible library of foundational and advanced components, enabling you to build your design system and develop React applications faster. Get started. npm install @mui/material @emotion/react",
+      "url": "https://mui.com/static/logo.png",
+      "category": "Инструменты",
+      "id": 13
+    }
+  ],
+  "message": [
+    {
+      "userName": "mirlan",
+      "userDate": "2022-04-05",
+      "userText": "wajshcfbuiiasdvhwkaelsjciohabuae\\sjdn mfcnklewjoisdhfuibhjgrnfewsdc",
+      "userNumber": "0709263684",
+      "id": 1
+    },
+    {
+      "userName": "aida ",
+      "userDate": "",
+      "userText": "wuhsdyqwertyuiop[';lkjhgfdsxcvbnjuytgvb",
+      "userNumber": "0709263684",
+      "id": 2
+    },
+    {
+      "userName": "mirlan",
+      "userDate": "2022-04-05",
+      "userText": "qwertyuiopl,mnbvcxzasdfghj",
+      "userNumber": "123456789",
+      "id": 3
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Security{
+    width: 95%;
+    margin: 100px auto;
+}
+.SecurityDisplay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #f6f6f6;
+    font-family: AktivGrotesk-Medium;
+    text-align: center;
+    
+}
+.SecurityType{
+    width: 30%;
+    padding: 16px 34px;
+    margin: 40px 0;
+}
+.SecurityImg{
+    width: 70px;
+}
+
+
+
+@media(max-width: 900px){
+    .SecurityType{
+        width: 45%;
+    }
+}
+
+
+@media(max-width:600px){
+    .SecurityType{
+        width: 80%;
+    }
+}

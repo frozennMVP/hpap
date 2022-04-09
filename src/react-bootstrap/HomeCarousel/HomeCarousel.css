@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather', serif;
+font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Ubuntu', sans-serif;
+}
+
+.HomeCarousel{
+    width: 60%;
+}
+
+.home-img{
+    display: block;
+    width: 100%;
+    height: 80vh;
+}
+.nameOfCarousel{
+    color: rgb(136, 189, 158);
+    color: white;
+    background-color: black;
+    padding: 10px 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+@media(max-width: 1100px) {
+    .HomeCarousel{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .home-img{
+        display: block;
+        width: 100%;
+        height: 60vh;
+    }
+}
+
+
+@media(max-width: 900px){
+    .home-img{
+        height: 50vh;
+    }
+}
+
+@media(max-width: 700px){
+    .home-img{
+        height: 35vh;
+    }
+}
