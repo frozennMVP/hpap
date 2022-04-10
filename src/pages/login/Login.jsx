@@ -28,7 +28,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-        const res = await axios.post(`http://localhost:3004/login`, {
+        const res = await axios.post(`https://hpaptilek-54116aip8-frozen17.vercel.app/login`, {
           email,
           password,
       });
