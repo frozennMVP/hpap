@@ -47,7 +47,7 @@ const Register = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("https://hpap-spare-pants.herokuapp.com/register", {
+      const res = await axios.post("https://hpap-spare-pants.herokuapp.com/users/register", {
         email,
         password,
         login,
