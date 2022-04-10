@@ -21,7 +21,6 @@ const Login = () => {
   const { dispatch, user } = useContext(Context);
   const [welcome, setWelcome] = useState(false)
   const [error, setError] = useState(false)
-  // const [open, setOpen] = useState(false);
   const [open, setOpen] = useState(false);
 
 
@@ -29,7 +28,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-        const res = await axios.post(`https://hpap-spare-pants.herokuapp.com/login`, {
+        const res = await axios.post(`http://localhost:3004/login`, {
           email,
           password,
       });
