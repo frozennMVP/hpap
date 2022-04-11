@@ -17,7 +17,8 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import { HOME_ROUTE } from "../../utils/Consts";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase/firebase-config";
+import { auth, db } from "../../firebase/firebase-config";
+import { setDoc, doc } from "firebase/firestore";
 
 
 
@@ -54,6 +55,15 @@ const Register = () => {
         email,
         password,
       );
+      console.log(res)
+      const uid = res.user.uid
+      setDoc(doc(db, "users", uid), {
+        login,
+        age,
+        gender,
+        surname,
+        number
+      })
       setOpen(true);
     setTimeout(setOpen, 3000)
       dispatch({ type: "LOGIN_SUCCESS", payload: res.user });
