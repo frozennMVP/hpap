@@ -1,5 +1,4 @@
 const jsonServer = require('json-server');
-const auth = require('json-server-auth')
 const server = jsonServer.create();
 const router = jsonServer.router('./api/db.json');
 const middlewares = jsonServer.defaults({
@@ -7,7 +6,6 @@ const middlewares = jsonServer.defaults({
 });
 const PORT = process.env.PORT || 8000;
 server.use(middlewares);
-server.use(auth)
 server.use(jsonServer.rewriter({
   '/api/*': '/$1',
 }))
