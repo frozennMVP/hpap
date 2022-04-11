@@ -28,7 +28,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-        const res = await axios.post(`https://hpap-spare-pants.herokuapp.com/login`, {
+        const res = await axios.post(`https://hpap-spare-pants.herokuapp.com/api/login`, {
           email,
           password,
       });

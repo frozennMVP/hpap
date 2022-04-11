@@ -4,7 +4,6 @@ import { authRoutes, publicRoutes } from "./utils/Routes";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { HOME_ROUTE, UNDEFINED } from "./utils/Consts";
 import Header from "./components/header/Header";
-import Navbar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
 import Explore from "./pages/explore/Explore";
 import Home from "./pages/home/Home";
@@ -54,7 +53,6 @@ const AppRouter = (props) => {
   return (
     <div>
       <Header cartItems={cartItems} removeFromBasket={removeFromBasket} />
-      <Navbar />
       <Routes>
         {(user &&
           authRoutes.map(({ path, element }) => (
