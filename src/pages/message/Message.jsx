@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 
 const fetchData = () => {
     return axios
-      .get(`https://hpap-spare-pants.herokuapp.com/message`)
+      .get(`https://tilek.herokuapp.com/message`)
       .then(response => response.data);
   };
 

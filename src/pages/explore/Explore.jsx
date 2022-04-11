@@ -18,7 +18,7 @@ import DoDisturbIcon from "@mui/icons-material/DoDisturb";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const fetchData = (id) => {
-  return axios.get(`https://hpap-spare-pants.herokuapp.com/items/${id}`).then((res) => res.data);
+  return axios.get(`https://tilek.herokuapp.com/items/${id}`).then((res) => res.data);
 };
 
 const Explore = (props) => {

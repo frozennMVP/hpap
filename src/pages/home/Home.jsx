@@ -25,7 +25,7 @@ const Input = styled('input')({
 
 const fetchData = () => {
     return axios
-      .get(`https://hpap-spare-pants.herokuapp.com/api/items`)
+      .get(`https://tilek.herokuapp.com/api/items`)
       .then(response => response.data);
   };
 

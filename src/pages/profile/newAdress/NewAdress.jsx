@@ -31,7 +31,7 @@ const NewAdress = () => {
 
     const handleAddNewAdress = async (e) => {
         e.preventDefault()
-        const res = await axios.patch(`https://hpap-spare-pants.herokuapp.com/users/${user.id}`, {
+        const res = await axios.patch(`https://tilek.herokuapp.com/users/${user.id}`, {
             login,
             email,
             country,

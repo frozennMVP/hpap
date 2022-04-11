@@ -29,7 +29,7 @@ const AddItems = () => {
 
   const handleAddPost = async (e) => {
     e.preventDefault();
-    const res = await axios.post("https://hpap-spare-pants.herokuapp.com/items", {
+    const res = await axios.post("https://tilek.herokuapp.com/items", {
       name,
       price,
       description,
