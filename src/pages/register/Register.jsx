@@ -16,6 +16,8 @@ import './Register.css'
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import { HOME_ROUTE } from "../../utils/Consts";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/firebase-config";
 
 
 
@@ -47,18 +49,14 @@ const Register = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("http://localhost:3004/register/", {
+      const res = await createUserWithEmailAndPassword(
+        auth,
         email,
         password,
-        login,
-        surname,
-        age,
-        gender,
-        number
-      });
+      );
       setOpen(true);
     setTimeout(setOpen, 3000)
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.user });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.user });
       window.location.assign(HOME_ROUTE)
       setGreet(true)
       setLogin("");

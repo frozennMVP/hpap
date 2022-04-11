@@ -8,9 +8,10 @@ import Snackbar from "@mui/material/Snackbar";
 import { ADMIN_ROUTE, HOME_ROUTE, REGISTRATION_ROUTE } from "../../utils/Consts";
 import axios from "axios";
 import Alert from '@mui/material/Alert';
-
+import { auth } from "../../firebase/firebase-config";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 
 
@@ -28,13 +29,14 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-        const res = await axios.post(`https://hpap-spare-pants.herokuapp.com/api/login`, {
+        const res = await signInWithEmailAndPassword(
+          auth,
           email,
           password,
-      });
+      );
     setOpen(true);
     setTimeout(setOpen, 4000)
-    dispatch({ type: "LOGIN_SUCCESS", payload: res.data.user })
+    dispatch({ type: "LOGIN_SUCCESS", payload: res.user })
     setWelcome(true)
     setTimeout(setWelcome, 3000)
     setEmail("");
