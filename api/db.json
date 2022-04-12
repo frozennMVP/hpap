@@ -218,6 +218,34 @@
       "url": "https://mui.com/static/logo.png",
       "category": "Инструменты",
       "id": 13
+    },
+    {
+      "name": "xs",
+      "description": "At a Glance. Apple's iPhone XS and iPhone XS Max feature 5.8 and 6.5-inch display sizes, upgraded cameras, faster A12 Bionic chips, better displays, faster Face ID, and up to 512GB storage.",
+      "price": 45,
+      "url": "https://creative-it.ie/wp-content/uploads/2019/10/iphone-xs-silver.png",
+      "id": 14
+    },
+    {
+      "name": "xs",
+      "description": "At a Glance. Apple's iPhone XS and iPhone XS Max feature 5.8 and 6.5-inch display sizes, upgraded cameras, faster A12 Bionic chips, better displays, faster Face ID, and up to 512GB storage.",
+      "price": 45,
+      "url": "https://creative-it.ie/wp-content/uploads/2019/10/iphone-xs-silver.png",
+      "id": 15
+    },
+    {
+      "name": "xs",
+      "description": "At a Glance. Apple's iPhone XS and iPhone XS Max feature 5.8 and 6.5-inch display sizes, upgraded cameras, faster A12 Bionic chips, better displays, faster Face ID, and up to 512GB storage.",
+      "price": 45,
+      "url": "https://creative-it.ie/wp-content/uploads/2019/10/iphone-xs-silver.png",
+      "id": 16
+    },
+    {
+      "name": "xs",
+      "description": "At a Glance. Apple's iPhone XS and iPhone XS Max feature 5.8 and 6.5-inch display sizes, upgraded cameras, faster A12 Bionic chips, better displays, faster Face ID, and up to 512GB storage.",
+      "price": 45,
+      "url": "https://creative-it.ie/wp-content/uploads/2019/10/iphone-xs-silver.png",
+      "id": 17
     }
   ],
   "message": [
