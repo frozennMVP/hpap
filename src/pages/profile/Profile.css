@@ -33,3 +33,20 @@
 .toAddNewAdress:hover{
     color: rgb(30, 29, 29);
 }
+
+
+
+
+@media(max-width: 750px) {
+    .informationList{
+        width: 70%;
+    }
+}
+
+
+
+@media(max-width: 350px){
+    .informationList{
+        width: 90%;
+    }
+}

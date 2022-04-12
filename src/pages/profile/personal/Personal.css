@@ -31,7 +31,11 @@
 
 
 
-
+.personalDisplayBTN {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
 @media(max-width: 1200px){
     .formAddAdress{
         width: 80%;
@@ -52,4 +56,17 @@
     .AdressInput{
         width: 80%;
     }
+    .PesonalWidth{
+        width: 80%;
+        margin: 20px;
+    }
+    .personalDisplayBTN{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+@media(max-width: 420px){
+
 }

@@ -197,7 +197,7 @@ const Personal = () => {
             <div className="PesonalWidth">
               <h3 style={{ textAlign: "center" }}>Обзор моей учетной записи</h3>
               <hr />
-              <div style={{ display: "flex", justifyContent: "space-around" }}>
+              <div style={{ display: "flex", justifyContent: "space-around", flexDirection: "column" }}>
                 <div>
                   <h5>Имя: {user.login}</h5>
                   <h5>email: {user.email}</h5>
@@ -209,11 +209,12 @@ const Personal = () => {
                   <h5>Расположение: Кыргызстан</h5>
                 </div>
               </div>
-              <div style={{display: "flex", justifyContent: "center", margin: "10px 0"}}>
+              <div className="personalDisplayBTN">
                 <Button
                   onClick={goBack}
                   variant="outlined"
                   style={{
+                    width: "50%",
                     color: "white",
                     backgroundColor: "black",
                     margin: "15px 20px",
@@ -225,6 +226,7 @@ const Personal = () => {
                   onClick={handleCangeInPersonal}
                   variant="outlined"
                   style={{
+                    width: "50%",
                     color: "white",
                     backgroundColor: "black",
                     margin: "15px 20px",
