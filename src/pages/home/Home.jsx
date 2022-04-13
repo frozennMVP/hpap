@@ -14,6 +14,7 @@ import ImgGroup from '../../components/img/ImgGroup';
 import { styled } from '@mui/material/styles';
 import Review from '../../components/review/Review'
 import { SHOW_ROUTE } from '../../utils/Consts';
+import { REST_API } from '../../utils/urlApi';
 
 
 
@@ -25,7 +26,7 @@ const Input = styled('input')({
 
 const fetchData = () => {
     return axios
-      .get(`https://tilek.herokuapp.com/api/items`)
+      .get(`${REST_API}/items`)
       .then(response => response.data);
   };
 
