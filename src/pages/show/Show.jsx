@@ -113,13 +113,16 @@ const Show = () => {
             className="CardShow"
           >
             <div className="imagesContent">
-              <CardMedia
+              <Link to={`/home/${product.id}`}>
+                <CardMedia
                 className="itemsImgShow"
                 component="img"
                 height="430"
                 image={product.url}
                 alt="wait pls"
               />
+              </Link>
+
             </div>
             <Divider />
             <CardContent className="CardContent">
