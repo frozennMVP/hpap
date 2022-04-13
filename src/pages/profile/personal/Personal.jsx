@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 import axios from "axios";
 import SaveIcon from '@mui/icons-material/Save';
+import { REST_API } from "../../../utils/urlApi";
 
 const Personal = () => {
   const { dispatch, user } = useContext(Context);
@@ -47,7 +48,7 @@ const Personal = () => {
   const handleChangePersonal = async(e) => {
     e.preventDefault()
 
-    const res = await axios.patch(`https://tilek.herokuapp.com/users/${user.id}`, {
+    const res = await axios.patch(`${REST_API}/users/${user.id}`, {
         login,
         email,
         surname,

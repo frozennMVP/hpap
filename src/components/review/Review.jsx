@@ -12,6 +12,7 @@ import Checkbox from "@mui/material/Checkbox";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Link } from "react-router-dom";
 import './Review.css'
+import { REST_API } from "../../utils/urlApi";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -39,7 +40,7 @@ const Review = () => {
     e.preventDefault();
     try {
       const res = await axios
-        .post(`https://tilek.herokuapp.com/message`, {
+        .post(`${REST_API}/message`, {
           userName: name,
           userEmail: email,
           userText: text,

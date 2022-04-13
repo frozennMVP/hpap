@@ -64,6 +64,7 @@ const Register = () => {
         surname,
         number
       })
+      console.log(res)
       setOpen(true);
     setTimeout(setOpen, 3000)
       dispatch({ type: "LOGIN_SUCCESS", payload: res.user });

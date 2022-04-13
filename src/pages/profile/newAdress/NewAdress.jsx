@@ -10,6 +10,7 @@ import './NewAdress.css'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import SaveIcon from '@mui/icons-material/Save';
+import { REST_API } from "../../../utils/urlApi";
 
 
 const NewAdress = () => {
@@ -31,7 +32,7 @@ const NewAdress = () => {
 
     const handleAddNewAdress = async (e) => {
         e.preventDefault()
-        const res = await axios.patch(`https://tilek.herokuapp.com/users/${user.id}`, {
+        const res = await axios.patch(`${REST_API}/users/${user.id}`, {
             login,
             email,
             country,

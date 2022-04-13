@@ -12,6 +12,7 @@ import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
 import { Button, CardActionArea } from "@mui/material";
 import { Context } from "../../context/Context";
+import { REST_API } from "../../utils/urlApi";
 
 
 
@@ -19,7 +20,7 @@ import { Context } from "../../context/Context";
 
 const fetchData = () => {
   return axios
-    .get(`https://tilek.herokuapp.com/api/items`)
+    .get(`${REST_API}/items`)
     .then((response) => response.data);
 };
 

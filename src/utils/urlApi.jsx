@@ -1,1 +1,1 @@
-export const REST_API = `https://tilek.herokuapp.com/api`
+export const REST_API = `https://tilek.herokuapp.com`

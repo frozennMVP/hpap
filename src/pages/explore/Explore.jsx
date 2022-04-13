@@ -16,9 +16,10 @@ import SimpleAccordion from "../../components/accordion/Accardion";
 import Security from "../../components/accordion/Security";
 import DoDisturbIcon from "@mui/icons-material/DoDisturb";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { REST_API } from "../../utils/urlApi";
 
 const fetchData = (id) => {
-  return axios.get(`https://tilek.herokuapp.com/items/${id}`).then((res) => res.data);
+  return axios.get(`${REST_API}/items/${id}`).then((res) => res.data);
 };
 
 const Explore = (props) => {

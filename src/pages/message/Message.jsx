@@ -2,11 +2,12 @@ import React, { useState, useEffect} from 'react';
 import './Message.css'
 import axios from 'axios';
 import { useParams } from 'react-router-dom'
+import { REST_API } from '../../utils/urlApi';
 
 
 const fetchData = () => {
     return axios
-      .get(`https://tilek.herokuapp.com/message`)
+      .get(`${REST_API}/message`)
       .then(response => response.data);
   };
 

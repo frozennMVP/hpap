@@ -4,6 +4,7 @@ import illustr from "../../images/illustr.jpg";
 import { Button } from "@mui/material";
 import axios from "axios";
 import './Feedback.css'
+import { REST_API } from "../../utils/urlApi";
 
 
 const Feedback = () => {
@@ -17,7 +18,7 @@ const Feedback = () => {
     e.preventDefault();
     try {
       const res = await axios
-        .post("https://tilek.herokuapp.com/message", {
+        .post(`${REST_API}/message`, {
           userName: name,
           userDate: date,
           userText: text,
