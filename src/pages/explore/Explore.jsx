@@ -15,16 +15,26 @@ import { Button } from "@mui/material";
 import SimpleAccordion from "../../components/accordion/Accardion";
 import Security from "../../components/accordion/Security";
 import DoDisturbIcon from "@mui/icons-material/DoDisturb";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import { REST_API } from "../../utils/urlApi";
+import CardContent from "@mui/material/CardContent";
+import Divider from "@mui/material/Divider";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { CardActionArea } from "@mui/material";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 
 const fetchData = (id) => {
   return axios.get(`${REST_API}/items/${id}`).then((res) => res.data);
 };
 
+const fetch = () => {
+  return axios.get(`${REST_API}/items`).then((response) => response.data);
+};
+
 const Explore = (props) => {
   const { dispatch, user } = useContext(Context);
   const [post, setPost] = useState({});
+  const [items, setItems] = useState([]);
   const { addToBasket, removeFromBasket, cartItems, idChangeMode } = props;
   const { id } = useParams();
   const [edit, setEdit] = useState(false);
@@ -32,10 +42,8 @@ const Explore = (props) => {
   const [price, setPrice] = useState();
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
-  const [isConfirm, setIsConfirm] = useState(false)
+  const [isConfirm, setIsConfirm] = useState(false);
   const navigate = useNavigate();
-
-  
 
   const goBack = () => {
     navigate(-0.5);
@@ -47,6 +55,10 @@ const Explore = (props) => {
 
   useEffect(() => {
     fetchData(id).then((data) => setPost(data));
+  }, [id]);
+
+  useEffect(() => {
+    fetch(id).then((data) => setItems(data));
   }, [id]);
 
   const handleEdit = () => {
@@ -69,11 +81,11 @@ const Explore = (props) => {
       url,
       price,
       description,
-    })
-    setIsConfirm(true)
+    });
+    setIsConfirm(true);
     fetchData(id).then((data) => setPost(data));
-    goBackAll()
-  }
+    goBackAll();
+  };
 
   return (
     <div>
@@ -90,15 +102,13 @@ const Explore = (props) => {
                   }}
                 />
               </Link>
-              {post.name}
+              Назад
             </span>
           </div>
 
           <div className="post-card">
-            <Card
-              className="CardForImgExplore"
-            >
-                <CardMedia
+            <Card className="CardForImgExplore">
+              <CardMedia
                 className="itemsImgExplore"
                 component="img"
                 height="430"
@@ -108,46 +118,73 @@ const Explore = (props) => {
             </Card>
             <div className="CardForInfo">
               {user ? (
-                <div >
-                  {user.status === true ? (
-                    <div className="buttonForAdmin">
-                      <IconButton aria-label="more"
-                      id="long-button"
-                      aria-haspopup="true"
-                      onClick={handleDelete}
-                      style={{
-                        display: "flex",
-                        justifyContent: "end",
-                        color: "gray",
-                      }}>
-                        <DeleteIcon style={{
-                          color: "gray",
-                          margin: "0px 15px"
-                        }}/>
-                      </IconButton>
-                      <IconButton
+                <div>
+                  <div className="buttonForAdmin">
+                    {user ? (
+                      <div>
+                        {idChangeMode ? (
+                            <IconButton
+                              aria-label="more"
+                              id="long-button"
+                              aria-haspopup="true"
+                              onClick={() => removeFromBasket(post)}
+                              style={{
+                                display: "flex",
+                                justifyContent: "end",
+                                color: "gray",
+                              }}
+                            >
+                              <RemoveShoppingCartIcon
+                                style={{
+                                  color: "gray",
+                                  margin: "0px 15px",
+                                }}
+                              />
+                            </IconButton>
+                        ) : (
+                          
+                            <IconButton
+                              aria-label="more"
+                              id="long-button"
+                              aria-haspopup="true"
+                              onClick={() => addToBasket(post)}
+                              style={{
+                                display: "flex",
+                                justifyContent: "end",
+                                color: "gray",
+                              }}
+                            >
+                              <AddShoppingCartIcon
+                                style={{
+                                  color: "gray",
+                                  margin: "0px 15px",
+                                }}
+                              />
+                            </IconButton>
+                        )}
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    <IconButton
                       aria-label="more"
                       id="long-button"
                       aria-haspopup="true"
-                      onClick={handleEdit}
+                      onClick={() => addToBasket(post)}
                       style={{
                         display: "flex",
                         justifyContent: "end",
                         color: "gray",
                       }}
                     >
-                      <ModeEditIcon
+                      <AddShoppingCartIcon
                         style={{
                           color: "gray",
-                          margin: "0px 15px"
+                          margin: "0px 15px",
                         }}
                       />
                     </IconButton>
-                    </div>
-                    
-                  ) : (
-                    ""
-                  )}
+                  </div>
                 </div>
               ) : (
                 ""
@@ -221,18 +258,27 @@ const Explore = (props) => {
                 )}
               </div>
               <div>
-                {user ? 
-                (<div>
-                  {user.status === true ? "" : <div>{idChangeMode ? (
-                    <Button onClick={() => addToBasket(post)}>Добавить</Button>
+                {user ? (
+                  <div>
+                    {user.status === true ? (
+                      ""
+                    ) : (
+                      <div>
+                        {idChangeMode ? (
+                          <Button onClick={() => addToBasket(post)}>
+                            Добавить в корзину
+                          </Button>
+                        ) : (
+                          <Button onClick={() => addToBasket(post)}>
+                            Добавить в корзину
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 ) : (
-                  <Button onClick={() => addToBasket(post)}>Добавить</Button>
-                )}</div>}
-                </div>)
-                : 
-                ("")
-                }
-                
+                  ""
+                )}
               </div>
               <div
                 style={{
@@ -269,6 +315,56 @@ const Explore = (props) => {
               <div className="secure">
                 <SimpleAccordion />
               </div>
+            </div>
+          </div>
+
+          <div>
+            <Button>РЕКОМЕНДУЕМЫЕ</Button>
+
+            <div>
+              {items
+                .filter((item) => item.price >= 35)
+                .map((item) => (
+                  <Card
+                    key={item.id}
+                    sx={{ overflow: "hidden", margin: "10px" }}
+                    className="Card"
+                    elevation="6"
+                  >
+                    <CardActionArea className="CardImgFicsHome">
+                      <div>
+                        <Link to={`/home/${item.id}`}>
+                          <CardMedia
+                            className="itemsImgHome"
+                            component="img"
+                            height="430"
+                            image={item.url}
+                            alt="wait pls"
+                          />
+                        </Link>
+                      </div>
+                    </CardActionArea>
+                    <Divider />
+                    <CardContent
+                      className="CardContentInfo"
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        height: "20%",
+                      }}
+                    >
+                      <Link
+                        className="homeLinkToExplore"
+                        key={item.id}
+                        to={`/home/${item.id}`}
+                      >
+                        {item.name}
+                      </Link>
+                      <p className="paragraphPrice">Цена: {item.price} $</p>
+                    </CardContent>
+                  </Card>
+                ))}
             </div>
           </div>
         </div>

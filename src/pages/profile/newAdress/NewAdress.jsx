@@ -42,8 +42,7 @@ const NewAdress = () => {
             number,
             additional
         })
-        dispatch({ type: "USER_UPDATE", payload: res.data });
-    
+        dispatch({ type: "USER_UPDATE", payload: res.user });
         setLogin('')
         setEmail('')
         setCountry('')
@@ -80,13 +79,13 @@ const NewAdress = () => {
       <div className="NewAdressForm">
           
             {isAdressed ?
-             (        <form onSubmit={handleAddNewAdress} className='formAddAdress'>
+             ( <form onSubmit={handleAddNewAdress} className='formAddAdress'>
                 <div>
                   <TextField
                     id="outlined-basic"
                     label={user.login}
                     onChange={(e) => setLogin(e.target.value)}
-                    value={login}
+                    placeholder={login ? login : "Имя"}
                     variant="outlined"
                     className="AdressInput"
                   />

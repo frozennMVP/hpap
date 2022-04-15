@@ -158,15 +158,16 @@ font-family: 'Ubuntu', sans-serif;
     }
     .Card{
         width: 100%;
-        height: 55vh;
+        height: 80vh;
     }
     .CardImgFicsHome{
         height: 80%;
     }
     .itemsImgHome{
-        width: 90%;
-        height: 30%;
+        width: 70%;
+        height: 20%;
         overflow: hidden;
+        padding: 40px;
     }
     .CardContentInfo{
         height: 20% !important;
@@ -182,9 +183,19 @@ font-family: 'Ubuntu', sans-serif;
 } */
 
 
+@media(max-width: 400px){
+    .Card{
+        height: 60vh;
+    }
+    .itemsImgHome{
+        width: 80%;
+        height: 20%;
+        overflow: hidden;
+    }
+}
 
 @media(max-width: 350px){
     .Card{
-        height: 40vh;
+        height: 50vh;
     }
 }

@@ -62,6 +62,7 @@ useEffect(() => {
               key={item.id}
               sx={{ overflow: "hidden", margin: "10px" }}
               className="Card"
+              elevation="6"
             >
               <CardActionArea className="CardImgFicsHome">
                 <div>

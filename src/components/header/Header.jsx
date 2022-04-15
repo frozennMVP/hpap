@@ -141,14 +141,15 @@ const Header = (props) => {
               {user.status === true ? (
                 <p className="link">Админ</p>
               ) : (
+                
                 <MenuItem>
                   <ListItemIcon>
                     <StyledBadge
                       color="secondary"
-                      badgeContent={cartItems.length}
+                      badgeContent={cartItems.length} 
                     >
                       <ShoppingCartIcon
-                        onClick={handleClickOpen}
+                      onClick={handleClickOpen}
                         style={{
                           color: "white",
                         }}

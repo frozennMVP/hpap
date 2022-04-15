@@ -68,7 +68,7 @@ const Register = () => {
       setOpen(true);
     setTimeout(setOpen, 3000)
       dispatch({ type: "LOGIN_SUCCESS", payload: res.user });
-      window.location.assign(HOME_ROUTE)
+    //  window.location.assign(HOME_ROUTE)
       setGreet(true)
       setLogin("");
       setEmail("");

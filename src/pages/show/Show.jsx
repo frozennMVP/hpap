@@ -112,6 +112,7 @@ const Show = () => {
             key={product.id}
             sx={{ overflow: "hidden", margin: "10px" }}
             className="CardShow"
+            elevation="6"
           >
             <div className="imagesContent">
               <Link to={`/home/${product.id}`}>
