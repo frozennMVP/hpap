@@ -90,11 +90,11 @@ const Header = (props) => {
   const { cartItems, removeFromBasket } = props;
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
 
-
+  const userUid = user.uid
 
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
-  const users = doc(db, "users", user.uid);
+  const users = doc(db, "users", userUid);
   getDoc(users).then((doc) => {
     setFirebaseUsers(doc.data())
   })

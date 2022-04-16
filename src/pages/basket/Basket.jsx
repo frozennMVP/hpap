@@ -22,7 +22,6 @@ const Basket = (props) => {
   const { id } = useParams()
   
   const { cartItems } = props;
-console.log(cartItems)
 
 
 
