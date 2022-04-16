@@ -39,9 +39,7 @@ import { useSelector } from "react-redux";
 
 import { db } from "../../firebase/firebase-config";
 
-import { setDoc, doc } from "firebase/firestore";
-
-import { getDoc } from "firebase/firestore";
+import { getDoc, setDoc, doc } from "firebase/firestore";
 
 
 
@@ -57,7 +55,6 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const AccountMenu = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const { user, dispatch } = useContext(Context);
-  // const items = useSelector(state => state.cart.itemsInCart)
   const [invisible, setInvisible] = useState(false);
 
   const [firebaseUsers, setFirebaseUsers] = useState({})
@@ -95,7 +92,7 @@ const AccountMenu = () => {
           color: "white",
         }}
       >
-        <Tooltip title={firebaseUsers.login}>
+        <Tooltip>
           <AccountBoxIcon
             onClick={handleClick}
             size="small"
