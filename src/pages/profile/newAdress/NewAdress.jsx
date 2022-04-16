@@ -23,10 +23,7 @@ const NewAdress = () => {
 
 const [firebaseUsers, setFirebaseUsers] = useState({})
 
-    const users = doc(db, "users", user.uid);
-    getDoc(users).then((doc) => {
-      setFirebaseUsers(doc.data())
-    })
+
 
 
 

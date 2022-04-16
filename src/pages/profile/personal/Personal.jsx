@@ -26,10 +26,6 @@ const Personal = () => {
   const { dispatch, user } = useContext(Context);
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
-  const users = doc(db, "users", user.uid);
-  getDoc(users).then((doc) => {
-    setFirebaseUsers(doc.data())
-  })
 
 
 
@@ -85,7 +81,17 @@ const Personal = () => {
       number,
       additional,
     }).then(res => console.log(res))
+
+
+    const users = doc(db, "users", user.uid);
+    getDoc(users).then((doc) => {
+      setFirebaseUsers(doc.data())
+    })
+
+    
     dispatch({ type: "USER_UPDATE", payload: res.user });
+
+
 
     setLogin('')
     setSurname('')

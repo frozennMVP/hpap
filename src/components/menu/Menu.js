@@ -63,7 +63,6 @@ const AccountMenu = () => {
   getDoc(users).then((doc) => {
     setFirebaseUsers(doc.data())
   })
-  console.log(firebaseUsers)
 
 
   const handleBadgeVisibility = () => {
