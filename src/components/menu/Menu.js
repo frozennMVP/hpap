@@ -93,7 +93,7 @@ const AccountMenu = () => {
           color: "white",
         }}
       >
-        <Tooltip title={firebaseUsers.login}>
+        <Tooltip>
           <AccountBoxIcon
             onClick={handleClick}
             size="small"
@@ -139,7 +139,7 @@ const AccountMenu = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-          {firebaseUsers.status === true ? (""):(<Link
+          {user.status === true ? (""):(<Link
           style={{
             textDecoration: "none",
             color: "black",
@@ -154,7 +154,7 @@ const AccountMenu = () => {
 
 
         <Divider />
-        {firebaseUsers.status === true ? (
+        {user.status === true ? (
           <Link
             style={{
               textDecoration: "none",
@@ -173,7 +173,7 @@ const AccountMenu = () => {
           ""
         )}
 
-        {firebaseUsers.status === true ? (
+        {user.status === true ? (
           <Link
             style={{
               textDecoration: "none",
