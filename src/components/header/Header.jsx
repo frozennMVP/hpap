@@ -28,6 +28,15 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
+
+import { db } from "../../firebase/firebase-config";
+
+import { setDoc, doc } from "firebase/firestore";
+
+import { getDoc } from "firebase/firestore";
+
+
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     right: -3,
@@ -81,6 +90,15 @@ const Header = (props) => {
   const { cartItems, removeFromBasket } = props;
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
 
+
+  const [firebaseUsers, setFirebaseUsers] = useState({})
+
+    const users = doc(db, "users", user.uid);
+    getDoc(users).then((doc) => {
+      setFirebaseUsers(doc.data())
+    })
+
+
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -133,12 +151,13 @@ const Header = (props) => {
             alignItems: "center",
           }}
         >
-          <Link className="contactFeedback" to={FEED_ROUTE}>
+          {user ? (<div>{firebaseUsers ? ("") : <Link className="contactFeedback" to={FEED_ROUTE}>
             Свяжитесь с нами
-          </Link>
+          </Link>}</div>) : ("")}
+          
           {user ? (
             <div className="link">
-              {user.status === true ? (
+              {firebaseUsers.status === true ? (
                 <p className="link">Админ</p>
               ) : (
                 

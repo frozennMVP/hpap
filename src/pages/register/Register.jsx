@@ -31,6 +31,7 @@ const Register = () => {
   const [number, setNumber] = useState("");
   const [age, setAge] = useState("");
   const [greet, setGreet] = useState(false)
+  const [error, setError] = useState(false)
 
   const { dispatch, user } = useContext(Context);
 
@@ -68,7 +69,7 @@ const Register = () => {
       setOpen(true);
     setTimeout(setOpen, 3000)
       dispatch({ type: "LOGIN_SUCCESS", payload: res.user });
-    //  window.location.assign(HOME_ROUTE)
+      window.location.assign(HOME_ROUTE)
       setGreet(true)
       setLogin("");
       setEmail("");
@@ -77,6 +78,7 @@ const Register = () => {
       setGender("");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE" });
+      setError(true)
       console.log(error);
     }
   };
@@ -226,6 +228,9 @@ const Register = () => {
               margin: "15px 25px",
             }}
           />
+        </div>
+        <div>
+          {error ? <p style={{textAlign : "center", color: "red"}}>Такой пароль с email уже существует</p>  : ""}
         </div>
 
         

@@ -34,6 +34,17 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { styled } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 
+
+
+
+import { db } from "../../firebase/firebase-config";
+
+import { setDoc, doc } from "firebase/firestore";
+
+import { getDoc } from "firebase/firestore";
+
+
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     right: -3,
@@ -48,6 +59,14 @@ const AccountMenu = () => {
   const { user, dispatch } = useContext(Context);
   // const items = useSelector(state => state.cart.itemsInCart)
   const [invisible, setInvisible] = useState(false);
+
+  const [firebaseUsers, setFirebaseUsers] = useState({})
+
+  const users = doc(db, "users", user.uid);
+  getDoc(users).then((doc) => {
+    setFirebaseUsers(doc.data())
+  })
+
 
   const handleBadgeVisibility = () => {
     setInvisible(!invisible);
@@ -122,7 +141,7 @@ const AccountMenu = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-          {user.status === true ? (""):(<Link
+          {firebaseUsers.status === true ? (""):(<Link
           style={{
             textDecoration: "none",
             color: "black",
@@ -137,7 +156,7 @@ const AccountMenu = () => {
 
 
         <Divider />
-        {user.status === true ? (
+        {firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",
@@ -156,7 +175,7 @@ const AccountMenu = () => {
           ""
         )}
 
-        {user.status === true ? (
+        {firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",
