@@ -27,7 +27,7 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
 
 
 
-  const [login, setLogin] = useState(users.login);
+  const [login, setLogin] = useState(user.login);
   const [email, setEmail] = useState(user.email);
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
@@ -60,7 +60,6 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
     getDoc(users).then((doc) => {
       setFirebaseUsers(doc.data())
     })
-  console.log(firebaseUsers)
     
     dispatch({ type: "USER_UPDATE", payload: res.user });
     setLogin("");
