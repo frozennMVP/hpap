@@ -29,12 +29,12 @@ import CloseIcon from "@mui/icons-material/Close";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 
+
 import { db } from "../../firebase/firebase-config";
 
 import { setDoc, doc } from "firebase/firestore";
 
 import { getDoc } from "firebase/firestore";
-
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -91,12 +91,13 @@ const Header = (props) => {
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
 
 
+
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
-    const users = doc(db, "users", user.uid);
-    getDoc(users).then((doc) => {
-      setFirebaseUsers(doc.data())
-    })
+  const users = doc(db, "users", user.uid);
+  getDoc(users).then((doc) => {
+    setFirebaseUsers(doc.data())
+  })
 
 
   const [open, setOpen] = useState(false);
@@ -151,7 +152,7 @@ const Header = (props) => {
             alignItems: "center",
           }}
         >
-          {user ? (<div>{firebaseUsers ? ("") : <Link className="contactFeedback" to={FEED_ROUTE}>
+          {user ? (<div>{firebaseUsers.status === true ? "" : <Link className="contactFeedback" to={FEED_ROUTE}>
             Свяжитесь с нами
           </Link>}</div>) : ("")}
           
