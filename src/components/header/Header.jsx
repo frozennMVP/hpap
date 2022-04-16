@@ -29,12 +29,12 @@ import CloseIcon from "@mui/icons-material/Close";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 
-
 import { db } from "../../firebase/firebase-config";
 
 import { setDoc, doc } from "firebase/firestore";
 
 import { getDoc } from "firebase/firestore";
+
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -85,20 +85,18 @@ BootstrapDialogTitle.propTypes = {
 };
 
 const Header = (props) => {
-  const { dispatch, user } = useContext(Context);
+  const { dispatch, user } = useContext(Context)
+  const [firebaseUsers, setFirebaseUsers] = useState({})
+
+  // const data = doc(db, "users", user.uid);
+  // getDoc(data).then((doc) => {
+  // console.log(doc.data())
+  // })
+
+
   const { id } = useParams;
   const { cartItems, removeFromBasket } = props;
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
-
-  const userUid = user.uid
-
-  const [firebaseUsers, setFirebaseUsers] = useState({})
-
-  const users = doc(db, "users", userUid);
-  getDoc(users).then((doc) => {
-    setFirebaseUsers(doc.data())
-  })
-
 
   const [open, setOpen] = useState(false);
 
@@ -110,11 +108,6 @@ const Header = (props) => {
   };
 
   useEffect(() => {}, []);
-
-  const handleLogOut = () => {
-    dispatch({ type: "LOGOUT" });
-    window.location.assign(LOGIN_ROUTE);
-  };
 
   return (
     <div className="Header">
@@ -152,10 +145,9 @@ const Header = (props) => {
             alignItems: "center",
           }}
         >
-          {user ? (<div>{firebaseUsers.status === true ? "" : <Link className="contactFeedback" to={FEED_ROUTE}>
+          <Link className="contactFeedback" to={FEED_ROUTE}>
             Свяжитесь с нами
-          </Link>}</div>) : ("")}
-          
+          </Link>
           {user ? (
             <div className="link">
               {firebaseUsers.status === true ? (

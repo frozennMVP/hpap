@@ -95,7 +95,7 @@ const AccountMenu = () => {
           color: "white",
         }}
       >
-        <Tooltip title={user.login}>
+        <Tooltip title={firebaseUsers.login}>
           <AccountBoxIcon
             onClick={handleClick}
             size="small"

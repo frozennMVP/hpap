@@ -15,16 +15,40 @@ import axios from "axios";
 import SaveIcon from '@mui/icons-material/Save';
 import { REST_API } from "../../../utils/urlApi";
 
+
+import { db } from "../../../firebase/firebase-config";
+
+import { setDoc, doc } from "firebase/firestore";
+
+import { getDoc } from "firebase/firestore";
+
 const Personal = () => {
   const { dispatch, user } = useContext(Context);
-  const [login, setLogin] = useState(user.login);
-  const [surname, setSurname] = useState(user.surname);
-  const [email, setEmail] = useState(user.email);
+  const [firebaseUsers, setFirebaseUsers] = useState({})
+
+  const users = doc(db, "users", user.uid);
+  getDoc(users).then((doc) => {
+    setFirebaseUsers(doc.data())
+  })
+
+
+
+
+  const [login, setLogin] = useState(firebaseUsers.login);
+  const [surname, setSurname] = useState(firebaseUsers.surname);
+  const [email, setEmail] = useState(firebaseUsers.email);
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("");
-  const [number, setNumber] = useState(user.number);
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [adress, setAdress] = useState("");
+  const [index, setIndex] = useState("");
+  const [additional, setAdditional] = useState("");
+  const [number, setNumber] = useState(firebaseUsers.number);
   const [age, setAge] = useState("");
   const [isAcc, setIsAcc] = useState(false);
+
+
 
   const navigate = useNavigate();
 
@@ -48,16 +72,20 @@ const Personal = () => {
   const handleChangePersonal = async(e) => {
     e.preventDefault()
 
-    const res = await axios.patch(`${REST_API}/users/${user.id}`, {
-        login,
-        email,
-        surname,
-        password,
-        gender,
-        number,
-        age
-    })
-    dispatch({ type: "USER_UPDATE", payload: res.data });
+    const res = await setDoc(doc(db, "users", user.uid), {
+      login,
+      email,
+      password,
+      age,
+      gender,
+      country,
+      city,
+      adress,
+      index,
+      number,
+      additional,
+    }).then(res => console.log(res))
+    dispatch({ type: "USER_UPDATE", payload: res.user });
 
     setLogin('')
     setSurname('')
@@ -200,13 +228,13 @@ const Personal = () => {
               <hr />
               <div style={{ display: "flex", justifyContent: "space-around", flexDirection: "column" }}>
                 <div>
-                  <h5>Имя: {user.login}</h5>
-                  <h5>email: {user.email}</h5>
-                  <h5>ДР: {user.age}</h5>
+                  <h5>Имя: {firebaseUsers.login}</h5>
+                  <h5>email: {firebaseUsers.email}</h5>
+                  <h5>ДР: {firebaseUsers.age}</h5>
                 </div>
                 <div>
-                  <h5>Фамилия: {user.surname}</h5>
-                  <h5>Пол: {user.gender}</h5>
+                  <h5>Фамилия: {firebaseUsers.surname}</h5>
+                  <h5>Пол: {firebaseUsers.gender}</h5>
                   <h5>Расположение: Кыргызстан</h5>
                 </div>
               </div>
