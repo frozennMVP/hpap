@@ -63,6 +63,7 @@ const AccountMenu = () => {
   getDoc(users).then((doc) => {
     setFirebaseUsers(doc.data())
   })
+  console.log(firebaseUsers)
 
 
   const handleBadgeVisibility = () => {
@@ -92,7 +93,7 @@ const AccountMenu = () => {
           color: "white",
         }}
       >
-        <Tooltip>
+        <Tooltip title={firebaseUsers.login}>
           <AccountBoxIcon
             onClick={handleClick}
             size="small"
