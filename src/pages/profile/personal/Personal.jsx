@@ -18,16 +18,20 @@ import { REST_API } from "../../../utils/urlApi";
 
 import { db } from "../../../firebase/firebase-config";
 
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, onSnapshot, getDoc } from "firebase/firestore";
 
-import { getDoc } from "firebase/firestore";
+
+
 
 const Personal = () => {
   const { dispatch, user } = useContext(Context);
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
 
-
+  const users = doc(db, "users", user.uid);
+  onSnapshot(users, (doc) => {
+    setFirebaseUsers(doc.data())
+  })  
 
 
   const [login, setLogin] = useState(firebaseUsers.login);
@@ -83,12 +87,8 @@ const Personal = () => {
     }).then(res => console.log(res))
 
 
-    const users = doc(db, "users", user.uid);
-    getDoc(users).then((doc) => {
-      setFirebaseUsers(doc.data())
-    })
 
-    
+
     dispatch({ type: "USER_UPDATE", payload: res.user });
 
 

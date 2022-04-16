@@ -13,7 +13,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import { REST_API } from "../../../utils/urlApi";
 import { db } from "../../../firebase/firebase-config";
 
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, onSnapshot } from "firebase/firestore";
 
 import { getDoc } from "firebase/firestore";
 
@@ -24,8 +24,10 @@ const NewAdress = () => {
 const [firebaseUsers, setFirebaseUsers] = useState({})
 
 
-
-
+const users = doc(db, "users", user.uid);
+onSnapshot(users, (doc) => {
+  setFirebaseUsers(doc.data())
+})  
 
   const [login, setLogin] = useState(user.login);
   const [email, setEmail] = useState(user.email);
@@ -56,10 +58,11 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
       additional,
     }).then(res => console.log(res))
 
+
     const users = doc(db, "users", user.uid);
-    getDoc(users).then((doc) => {
-      setFirebaseUsers(doc.data())
-    })
+onSnapshot(users, (doc) => {
+  setFirebaseUsers(doc.data())
+})  
     
     dispatch({ type: "USER_UPDATE", payload: res.user });
     setLogin("");
