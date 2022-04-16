@@ -48,7 +48,7 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
 
   const handleAddNewAdress = async (e) => {
     e.preventDefault();
-    const res = await setDoc(doc(db, "users", user.uid), {
+    const res = await setDoc.patch(doc(db, "users", user.uid), {
       login,
       email,
       country,
@@ -59,7 +59,10 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
       additional,
     }).then(res => console.log(res))
 
-
+    const users = doc(db, "users", user.uid);
+    getDoc(users).then((doc) => {
+      setFirebaseUsers(doc.data())
+    })
     
     dispatch({ type: "USER_UPDATE", payload: res.user });
     setLogin("");
@@ -70,6 +73,7 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
     setIndex("");
     setNumber("");
     setAdditional("");
+ setTimeout(2000, goBack())
   };
 
   const handleChangeAdress = () => {

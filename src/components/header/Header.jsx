@@ -85,7 +85,8 @@ BootstrapDialogTitle.propTypes = {
 };
 
 const Header = (props) => {
-  const { dispatch, user } = useContext(Context)
+  const { user } = useContext(Context)
+  console.log(user)
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
   // const data = doc(db, "users", user.uid);
