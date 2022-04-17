@@ -26,13 +26,11 @@ import { setDoc, doc, onSnapshot, getDoc } from "firebase/firestore";
 const Personal = () => {
   const { dispatch, user } = useContext(Context);
   const [firebaseUsers, setFirebaseUsers] = useState({})
-
-
-  const users = doc(db, "users", user.uid);
-  onSnapshot(users, (doc) => {
-    setFirebaseUsers(doc.data())
-  })  
-
+  
+  // const users = doc(db, "users", user.uid);
+  // onSnapshot(users, (doc) => {
+  //   setFirebaseUsers(doc.data())
+  // })  
 
   const [login, setLogin] = useState(firebaseUsers.login);
   const [surname, setSurname] = useState(firebaseUsers.surname);
@@ -85,7 +83,6 @@ const Personal = () => {
       number,
       additional,
     }).then(res => console.log(res))
-
 
 
 

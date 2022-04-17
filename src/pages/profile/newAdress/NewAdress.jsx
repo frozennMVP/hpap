@@ -23,11 +23,11 @@ const NewAdress = () => {
 
 const [firebaseUsers, setFirebaseUsers] = useState({})
 
+// const users = doc(db, "users", user.uid);
+// onSnapshot(users, (doc) => {
+//   setFirebaseUsers(doc.data())
+// })  
 
-const users = doc(db, "users", user.uid);
-onSnapshot(users, (doc) => {
-  setFirebaseUsers(doc.data())
-})  
 
   const [login, setLogin] = useState(user.login);
   const [email, setEmail] = useState(user.email);
@@ -58,11 +58,6 @@ onSnapshot(users, (doc) => {
       additional,
     }).then(res => console.log(res))
 
-
-    const users = doc(db, "users", user.uid);
-onSnapshot(users, (doc) => {
-  setFirebaseUsers(doc.data())
-})  
     
     dispatch({ type: "USER_UPDATE", payload: res.user });
     setLogin("");
