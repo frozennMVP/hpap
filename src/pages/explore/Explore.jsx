@@ -7,21 +7,16 @@ import { CardMedia } from "@mui/material";
 import HouseIcon from "@mui/icons-material/House";
 import { HOME_ROUTE } from "../../utils/Consts";
 import { Context } from "../../context/Context";
-import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import IconButton from "@mui/material/IconButton";
 import SaveIcon from "@mui/icons-material/Save";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import SimpleAccordion from "../../components/accordion/Accardion";
 import Security from "../../components/accordion/Security";
 import DoDisturbIcon from "@mui/icons-material/DoDisturb";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { REST_API } from "../../utils/urlApi";
 import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { CardActionArea } from "@mui/material";
-import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 
 const fetchData = (id) => {
   return axios.get(`${REST_API}/items/${id}`).then((res) => res.data);
@@ -65,7 +60,7 @@ const Explore = (props) => {
     setEdit(true);
   };
   const handleSaveChanges = async (e) => {
-    await axios.patch(`https://tilek.herokuapp.com/items/${id}`, {
+    await axios.patch(`${REST_API}/items/${id}`, {
       name,
       url,
       price,
@@ -76,7 +71,7 @@ const Explore = (props) => {
   };
 
   const handleDelete = async (e) => {
-    await axios.delete(`https://tilek.herokuapp.com/items/${id}`, {
+    await axios.delete(`${REST_API}/items/${id}`, {
       name,
       url,
       price,
@@ -247,9 +242,20 @@ const Explore = (props) => {
           </div>
 
           <div>
-            <Button>РЕКОМЕНДУЕМЫЕ</Button>
+            <div style={{
+                textAlign: "center",
+                
+            }}>
+            <Button style={{
+              margin: "40px auto",
+              backgroundColor: "black",
+              color: "white",
+              padding: "10px 20px"
+            }}>РЕКОМЕНДУЕМЫЕ</Button>
+            </div>
 
-            <div>
+            
+            <div className="itemsCard">
               {items
                 .filter((item) => item.price >= 35)
                 .map((item) => (
