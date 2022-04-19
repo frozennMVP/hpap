@@ -92,7 +92,7 @@ const AccountMenu = () => {
           color: "white",
         }}
       >
-        <Tooltip>
+        <Tooltip title={user.displayName}>
           <AccountBoxIcon
             onClick={handleClick}
             size="small"

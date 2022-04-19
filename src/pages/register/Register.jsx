@@ -19,6 +19,34 @@ import { HOME_ROUTE } from "../../utils/Consts";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase/firebase-config";
 import { setDoc, doc } from "firebase/firestore";
+import { makeStyles } from '@mui/styles';
+
+import GoogleButton from "react-google-button";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    width: 400,
+    color: "white",
+    borderRadius: 10,
+  },
+  google: {
+    padding: 24,
+    paddingTop: 0,
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "center",
+    marginLeft: '19%',
+    gap: 20,
+    fontSize: 20,
+  },
+}));
 
 
 
@@ -40,6 +68,40 @@ const Register = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+
+  const classes = useStyles();
+
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+
+
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const signInWithGoogle = async () => {
+    try{
+     const res = await signInWithPopup(auth, googleProvider)
+
+    dispatch({ type: "LOGIN_SUCCESS", payload: res.user });
+    }
+    
+
+      
+      catch(err) {
+        console.log(err)
+        dispatch({ type: "LOGIN_FAILURE" });
+      };
+  };
+
 
 
 
@@ -259,6 +321,13 @@ const Register = () => {
           }} type="submit" variant="outlined" className="registrBtn">
             Зарегистрироваться
           </Button>
+
+
+          <GoogleButton
+                style={{ width: "30%", outline: "none", margin: "40px auto"}}
+                onClick={signInWithGoogle}
+                label='Войти с Google'
+              /> 
         </div>
 
         <Backdrop

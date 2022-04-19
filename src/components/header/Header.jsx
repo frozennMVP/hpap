@@ -126,7 +126,6 @@ const Header = (props) => {
               fontSize: "15px",
             }}
           >
-            Звоните нам:{" "}
             <a
               style={{
                 color: "white",

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import HouseIcon from "@mui/icons-material/House";
@@ -22,11 +22,8 @@ const NewAdress = () => {
 
 
 const [firebaseUsers, setFirebaseUsers] = useState({})
-
 // const users = doc(db, "users", user.uid);
-// onSnapshot(users, (doc) => {
-//   setFirebaseUsers(doc.data())
-// })  
+
 
 
   const [login, setLogin] = useState(user.login);
@@ -47,7 +44,7 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
 
   const handleAddNewAdress = async (e) => {
     e.preventDefault();
-    const res = await setDoc.patch(doc(db, "users", user.uid), {
+    const res = await setDoc(doc(db, "users", user.uid), {
       login,
       email,
       country,
@@ -57,7 +54,6 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
       number,
       additional,
     }).then(res => console.log(res))
-
     
     dispatch({ type: "USER_UPDATE", payload: res.user });
     setLogin("");
@@ -227,15 +223,15 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
             <div className="AlreadyHavedAdress">
               <h4>МОЙ АДРЕС</h4>
               <div className="AlreadyAdressContent">
-                <p>Имя: {firebaseUsers.login}</p>
-                <p>E-mail: {firebaseUsers.email}</p>
-                <p>Страна: {firebaseUsers.country ? firebaseUsers.country : "Не указано"}</p>
-                <p>Город: {firebaseUsers.city ? firebaseUsers.city : "Не указано"}</p>
-                <p>Адрес: {firebaseUsers.adress ? firebaseUsers.adress : "Не указано"}</p>
-                <p>Почтовый индекс: {firebaseUsers.index ? firebaseUsers.index : "Не указано"}</p>
+                <p>Имя: {user ? user.displayName : firebaseUsers.login || "Не указано"}</p>
+                <p>E-mail: {user ? user.email : firebaseUsers.email || "Не указано"}</p>
+                <p>Страна: {user ? firebaseUsers.country : "Не указано"}</p>
+                <p>Город: { user ? firebaseUsers.city : "Не указано"}</p>
+                <p>Адрес: { user ? firebaseUsers.adress : "Не указано"}</p>
+                <p>Почтовый индекс: {user ? firebaseUsers.index : "Не указано"}</p>
                 <p>
                   Дополнительная информация:{" "}
-                  {user.additional ? user.additional : "Ничего не указано"}
+                  { user ? user.additional : "Ничего не указано"}
                 </p>
               </div>
               <Button
