@@ -92,6 +92,8 @@ const Register = () => {
      const res = await signInWithPopup(auth, googleProvider)
 
     dispatch({ type: "LOGIN_SUCCESS", payload: res.user });
+
+    window.location.assign(HOME_ROUTE)
     }
     
 
