@@ -63,8 +63,6 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
     getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
 
 
-    
-    dispatch({ type: "USER_UPDATE", payload: res.user });
     setTimeout(2000, goBack())
     setLogin("");
     setEmail("");
