@@ -14,3 +14,18 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+@media(max-width: 800px) {
+    .MessageUnder{
+        width: 80%;
+    }
+}
+
+
+
+@media(max-width: 400px){
+    .MessageUnder{
+        width: 90%;
+    }
+}
