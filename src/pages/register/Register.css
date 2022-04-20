@@ -52,7 +52,12 @@
 .reg-secure{
     margin: 15px 0;
 }
+.GoogleButton{
+    width: 30%;
+    outline: none;
+    margin: 40px auto;
 
+}
 
 
 
@@ -75,6 +80,9 @@
     .inputText {
         width: 80% !important;
     }
+    .GoogleButton{
+        width: 70%;
+    }
 }
 
 @media(max-width: 500px){
@@ -84,6 +92,10 @@
     .registrBtn{
         width: 65%;
     }
+    .GoogleButton{
+        width: 70%;
+    }
+
 }
 
 @media(max-width: 400px){ 
@@ -96,5 +108,8 @@
     }
     .registrBtn{
         width: 75%;
+    }
+    .GoogleButton{
+        width: 70%;
     }
 }

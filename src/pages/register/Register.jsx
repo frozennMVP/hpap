@@ -326,9 +326,10 @@ const Register = () => {
 
 
           <GoogleButton
-                style={{ width: "30%", outline: "none", margin: "40px auto"}}
+          
                 onClick={signInWithGoogle}
                 label='Войти с Google'
+                className="GoogleButton"
               /> 
         </div>
 
