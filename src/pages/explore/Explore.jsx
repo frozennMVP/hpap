@@ -188,11 +188,17 @@ const Explore = (props) => {
                     ) : (
                       <div>
                         {idChangeMode ? (
-                          <Button onClick={() => addToBasket(post)}>
+                          <Button style={{
+                            backgroundColor: "black",
+                            color: "white"
+                          }} onClick={() => addToBasket(post)}>
                             Добавить в корзину
                           </Button>
                         ) : (
-                          <Button onClick={() => addToBasket(post)}>
+                          <Button style={{
+                            backgroundColor: "black",
+                            color: "white"
+                          }} onClick={() => addToBasket(post)}>
                             Добавить в корзину
                           </Button>
                         )}
