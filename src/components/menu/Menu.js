@@ -59,9 +59,9 @@ const AccountMenu = () => {
 
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
-  useEffect(() => {
-    return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
-  })
+  // useEffect(() => {
+  //   return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
+  // })
 
 
   const handleBadgeVisibility = () => {
@@ -140,7 +140,7 @@ const AccountMenu = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-          {user && firebaseUsers.status === true ? (""):(<Link
+          {firebaseUsers.status === true ? (""):(<Link
           style={{
             textDecoration: "none",
             color: "black",
@@ -155,7 +155,7 @@ const AccountMenu = () => {
 
 
         <Divider />
-        {user && firebaseUsers.status === true ? (
+        { firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",
@@ -174,7 +174,7 @@ const AccountMenu = () => {
           ""
         )}
 
-        { user &&firebaseUsers.status === true ? (
+        {firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",
