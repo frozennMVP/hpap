@@ -189,14 +189,14 @@ const Explore = (props) => {
                       <div>
                         {idChangeMode ? (
                           <Button style={{
-                            backgroundColor: "#33C6FF",
+                            backgroundColor: "#338EFF",
                             color: "white"
                           }} onClick={() => addToBasket(post)}>
                             Добавить в корзину
                           </Button>
                         ) : (
                           <Button style={{
-                            backgroundColor: "#33C6FF",
+                            backgroundColor: "#338EFF",
                             color: "white"
                           }} onClick={() => addToBasket(post)}>
                             Добавить в корзину
