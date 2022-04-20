@@ -17,13 +17,17 @@ import { setDoc, doc, onSnapshot } from "firebase/firestore";
 
 import { getDoc } from "firebase/firestore";
 
+
+
+    // const getUsers = async(uid) => {
+    //   return await getDoc(doc(db, 'users', uid)).then(doc => console.log(doc.data()))
+    // } 
+
 const NewAdress = () => {
   const { dispatch, user } = useContext(Context);
 
 
 const [firebaseUsers, setFirebaseUsers] = useState({})
-const users = doc(db, "users", user.uid);
-
 
 
   const [login, setLogin] = useState(user.login);
@@ -54,13 +58,12 @@ const users = doc(db, "users", user.uid);
       number,
       additional,
     }).then(res => console.log(res))
+    getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
 
-    const users = getDoc(db, "users", user.uid)
-    onSnapshot(users, (doc) => {
-     setFirebaseUsers(doc.data())
-   })  
+
     
     dispatch({ type: "USER_UPDATE", payload: res.user });
+    setTimeout(2000, goBack())
     setLogin("");
     setEmail("");
     setCountry("");
@@ -69,8 +72,13 @@ const users = doc(db, "users", user.uid);
     setIndex("");
     setNumber("");
     setAdditional("");
- setTimeout(2000, goBack())
+    
   };
+
+
+  useEffect(() => {
+    return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
+  })
 
   const handleChangeAdress = () => {
     setIsAdressed(true);
@@ -171,7 +179,7 @@ const users = doc(db, "users", user.uid);
                 label={user.number}
                 variant="outlined"
                 onChange={(e) => setNumber(e.target.value)}
-                value={number}
+                placeholder={number ? number : "Номер"}
                 className="AdressInput"
                 type="tel"
                 required

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../../context/Context";
 import "./Personal.css";
 import FormLabel from "@mui/material/FormLabel";
@@ -18,7 +18,7 @@ import { REST_API } from "../../../utils/urlApi";
 
 import { db } from "../../../firebase/firebase-config";
 
-import { setDoc, doc, onSnapshot, getDoc } from "firebase/firestore";
+import {getFirestore, setDoc, doc, onSnapshot, getDoc,querySnapShot } from "firebase/firestore";
 
 
 
@@ -27,10 +27,7 @@ const Personal = () => {
   const { dispatch, user } = useContext(Context);
   const [firebaseUsers, setFirebaseUsers] = useState({})
   
-  // const users = doc(db, "users", user.uid);
-  // onSnapshot(users, (doc) => {
-  //   setFirebaseUsers(doc.data())
-  // })  
+
 
   const [login, setLogin] = useState(firebaseUsers.login);
   const [surname, setSurname] = useState(firebaseUsers.surname);
@@ -45,7 +42,6 @@ const Personal = () => {
   const [number, setNumber] = useState(firebaseUsers.number);
   const [age, setAge] = useState("");
   const [isAcc, setIsAcc] = useState(false);
-
 
 
   const navigate = useNavigate();
@@ -83,7 +79,6 @@ const Personal = () => {
       number,
       additional,
     }).then(res => console.log(res))
-
 
 
     dispatch({ type: "USER_UPDATE", payload: res.user });
@@ -231,13 +226,13 @@ const Personal = () => {
               <hr />
               <div style={{ display: "flex", justifyContent: "space-around", flexDirection: "column" }}>
                 <div>
-                  <h5>Имя: {firebaseUsers.login}</h5>
-                  <h5>email: {firebaseUsers.email}</h5>
-                  <h5>ДР: {firebaseUsers.age}</h5>
+                  <h5>Имя: {firebaseUsers.login ? firebaseUsers.login : user.displayName || "Не указано"}</h5>
+                  <h5>email: {user ? user.email : firebaseUsers.email || "Не указано"}</h5>
+                  <h5>ДР: {firebaseUsers.age ? firebaseUsers.age : "Не указано"}</h5>
                 </div>
                 <div>
-                  <h5>Фамилия: {firebaseUsers.surname}</h5>
-                  <h5>Пол: {firebaseUsers.gender}</h5>
+                  <h5>Фамилия: {firebaseUsers.surname ? firebaseUsers.surname : "Не указано"}</h5>
+                  <h5>Пол: {firebaseUsers.gender ? firebaseUsers.gender : "Не указано"}</h5>
                   <h5>Расположение: Кыргызстан</h5>
                 </div>
               </div>
