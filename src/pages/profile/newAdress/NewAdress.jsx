@@ -236,15 +236,15 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
             <div className="AlreadyHavedAdress">
               <h4>МОЙ АДРЕС</h4>
               <div className="AlreadyAdressContent">
-                <p>Имя: {firebaseUsers.login ? firebaseUsers.login : user.displayName || "Не указано"}</p>
+                <p>Имя: {user ? firebaseUsers.login : user.displayName || "Не указано"}</p>
                 <p>E-mail: {user ? user.email : firebaseUsers.email || "Не указано"}</p>
-                <p>Страна: {firebaseUsers.country ? firebaseUsers.country : "Не указано"}</p>
-                <p>Город: { firebaseUsers.city ? firebaseUsers.city : "Не указано"}</p>
-                <p>Адрес: { firebaseUsers.adress ? firebaseUsers.adress : "Не указано"}</p>
-                <p>Почтовый индекс: {firebaseUsers.index ? firebaseUsers.index : "Не указано"}</p>
+                <p>Страна: {user ? firebaseUsers.country : "Не указано"}</p>
+                <p>Город: { user ? firebaseUsers.city : "Не указано"}</p>
+                <p>Адрес: {user ? firebaseUsers.adress : "Не указано"}</p>
+                <p>Почтовый индекс: {user ? firebaseUsers.index : "Не указано"}</p>
                 <p>
                   Дополнительная информация:{" "}
-                  { user.additional ? user.additional : "Ничего не указано"}
+                  { user ? firebaseUsers.additional : "Ничего не указано"}
                 </p>
               </div>
               <Button
