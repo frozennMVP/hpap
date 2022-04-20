@@ -140,7 +140,7 @@ const AccountMenu = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-          {firebaseUsers.status === true ? (""):(<Link
+          {user && firebaseUsers.status === true ? (""):(<Link
           style={{
             textDecoration: "none",
             color: "black",
@@ -155,7 +155,7 @@ const AccountMenu = () => {
 
 
         <Divider />
-        {firebaseUsers.status === true ? (
+        {user && firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",
@@ -174,7 +174,7 @@ const AccountMenu = () => {
           ""
         )}
 
-        {firebaseUsers.status === true ? (
+        { user &&firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",
