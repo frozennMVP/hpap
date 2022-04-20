@@ -59,9 +59,9 @@ const AccountMenu = () => {
 
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
-  // useEffect(() => {
-  //   return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
-  // })
+  useEffect(() => {
+    return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
+  })
 
 
   const handleBadgeVisibility = () => {
