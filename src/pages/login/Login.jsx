@@ -13,6 +13,38 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import { signInWithEmailAndPassword } from "firebase/auth";
 
+import { db } from "../../firebase/firebase-config";
+import { setDoc, doc,collection } from "firebase/firestore";
+import { makeStyles } from '@mui/styles';
+
+import GoogleButton from "react-google-button";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    width: 400,
+    color: "white",
+    borderRadius: 10,
+  },
+  google: {
+    padding: 24,
+    paddingTop: 0,
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "center",
+    marginLeft: '19%',
+    gap: 20,
+    fontSize: 20,
+  },
+}));
+
+
 
 
 
@@ -23,6 +55,29 @@ const Login = () => {
   const [welcome, setWelcome] = useState(false)
   const [error, setError] = useState(false)
   const [open, setOpen] = useState(false);
+
+
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const signInWithGoogle = async () => {
+    try{
+     const res = await signInWithPopup(auth, googleProvider)
+
+
+    dispatch({ type: "LOGIN_SUCCESS", payload: res.user });
+
+    window.location.assign(HOME_ROUTE)
+    }
+    
+
+      
+      catch(err) {
+        console.log(err)
+        dispatch({ type: "LOGIN_FAILURE" });
+      };
+  };
+
 
 
   const handleLogin = async (e) => {
@@ -109,6 +164,12 @@ const Login = () => {
           >
             Войти
           </Button>
+          <GoogleButton
+          
+          onClick={signInWithGoogle}
+          label='Войти с Google'
+          className="GoogleButton"
+        /> 
           <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}

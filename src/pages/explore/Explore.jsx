@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Card } from "@mui/material";
+import { Card, IconButton } from "@mui/material";
 import "./Explore.css";
 import { CardMedia } from "@mui/material";
 import HouseIcon from "@mui/icons-material/House";
@@ -17,6 +17,14 @@ import { REST_API } from "../../utils/urlApi";
 import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
 import { CardActionArea } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
+
+import EditIcon from '@mui/icons-material/Edit';
+
+import { setDoc, doc, onSnapshot } from "firebase/firestore";
+
+import { getDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebase-config";
 
 const fetchData = (id) => {
   return axios.get(`${REST_API}/items/${id}`).then((res) => res.data);
@@ -39,6 +47,12 @@ const Explore = (props) => {
   const [description, setDescription] = useState("");
   const [isConfirm, setIsConfirm] = useState(false);
   const navigate = useNavigate();
+  const [firebaseUsers, setFirebaseUsers] = useState({})
+
+
+  useEffect(() => {
+    return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
+  })
 
   const goBack = () => {
     navigate(-0.5);
@@ -112,6 +126,23 @@ const Explore = (props) => {
               />
             </Card>
             <div className="CardForInfo">
+              {firebaseUsers.status === true ? (
+                <div>
+                  <IconButton onClick={handleDelete}>
+                    {" "}
+                    <DeleteIcon style={{ color: "gray" }}></DeleteIcon>
+                  </IconButton>
+                  <IconButton onClick={handleEdit}>
+                    <EditIcon
+                      style={{
+                        color: "gray",
+                      }}
+                    ></EditIcon>
+                  </IconButton>
+                </div>
+              ) : (
+                ""
+              )}
 
               {edit ? (
                 <TextField
@@ -127,7 +158,16 @@ const Explore = (props) => {
               ) : (
                 <h4 className="postName">{post.name}</h4>
               )}
-              {edit ? "" : <hr />}
+              {edit ? (
+                ""
+              ) : (
+                <hr
+                  style={{
+                    color: "#338EFF",
+                    height: "5px",
+                  }}
+                />
+              )}
               <div className={edit ? "inputsForDisplay" : ""}>
                 {edit ? (
                   <TextField
@@ -158,7 +198,14 @@ const Explore = (props) => {
                     required
                   />
                 ) : (
-                  <p className="postPrice">Цена: {post.price}$</p>
+                  <p
+                    className="postPrice"
+                    style={{
+                      fontWeight: "600",
+                    }}
+                  >
+                    Цена: {post.price}$
+                  </p>
                 )}
               </div>
 
@@ -183,22 +230,28 @@ const Explore = (props) => {
               <div>
                 {user ? (
                   <div>
-                    {user.status === true ? (
+                    {firebaseUsers.status === true ? (
                       ""
                     ) : (
                       <div>
                         {idChangeMode ? (
-                          <Button style={{
-                            backgroundColor: "#338EFF",
-                            color: "white"
-                          }} onClick={() => addToBasket(post)}>
+                          <Button
+                            style={{
+                              backgroundColor: "#338EFF",
+                              color: "white",
+                            }}
+                            onClick={() => addToBasket(post)}
+                          >
                             Добавить в корзину
                           </Button>
                         ) : (
-                          <Button style={{
-                            backgroundColor: "#338EFF",
-                            color: "white"
-                          }} onClick={() => addToBasket(post)}>
+                          <Button
+                            style={{
+                              backgroundColor: "#338EFF",
+                              color: "white",
+                            }}
+                            onClick={() => addToBasket(post)}
+                          >
                             Добавить в корзину
                           </Button>
                         )}
@@ -248,19 +301,23 @@ const Explore = (props) => {
           </div>
 
           <div>
-            <div style={{
+            <div
+              style={{
                 textAlign: "center",
-                
-            }}>
-            <Button style={{
-              margin: "40px auto",
-              backgroundColor: "black",
-              color: "white",
-              padding: "10px 20px"
-            }}>РЕКОМЕНДУЕМЫЕ</Button>
+              }}
+            >
+              <Button
+                style={{
+                  margin: "40px auto",
+                  backgroundColor: "#338EFF",
+                  color: "white",
+                  padding: "10px 20px",
+                }}
+              >
+                РЕКОМЕНДУЕМЫЕ
+              </Button>
             </div>
 
-            
             <div className="itemsCard">
               {items
                 .filter((item) => item.price >= 35)
