@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
@@ -59,9 +59,8 @@ const AccountMenu = () => {
 
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
-  const users = doc(db, "users", user.uid);
-  getDoc(users).then((doc) => {
-    setFirebaseUsers(doc.data())
+  useEffect(() => {
+    return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
   })
 
 
@@ -138,7 +137,7 @@ const AccountMenu = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-          {user.status === true ? (""):(<Link
+          {firebaseUsers.status === true ? (""):(<Link
           style={{
             textDecoration: "none",
             color: "black",
@@ -153,7 +152,7 @@ const AccountMenu = () => {
 
 
         <Divider />
-        {user.status === true ? (
+        {firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",
@@ -172,7 +171,7 @@ const AccountMenu = () => {
           ""
         )}
 
-        {user.status === true ? (
+        {firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",

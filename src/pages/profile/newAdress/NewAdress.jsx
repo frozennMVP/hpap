@@ -236,7 +236,7 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
             <div className="AlreadyHavedAdress">
               <h4>МОЙ АДРЕС</h4>
               <div className="AlreadyAdressContent">
-                <p>Имя: {user ? firebaseUsers.login : user.displayName || "Не указано"}</p>
+                <p>Имя: {user ?  user.displayName : firebaseUsers.login || "Не указано"}</p>
                 <p>E-mail: {user ? user.email : firebaseUsers.email || "Не указано"}</p>
                 <p>Страна: {user ? firebaseUsers.country : "Не указано"}</p>
                 <p>Город: { user ? firebaseUsers.city : "Не указано"}</p>

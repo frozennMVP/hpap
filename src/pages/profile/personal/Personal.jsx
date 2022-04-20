@@ -80,10 +80,9 @@ const Personal = () => {
       additional,
     }).then(res => console.log(res))
 
+    getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
 
-    dispatch({ type: "USER_UPDATE", payload: res.user });
-
-
+    setTimeout(2000, goBack())
 
     setLogin('')
     setSurname('')
@@ -94,6 +93,12 @@ const Personal = () => {
     setGender('')
     goBackNotAtAll()
   }
+
+
+
+  useEffect(() => {
+    return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
+  })
 
 
   return (
@@ -226,13 +231,13 @@ const Personal = () => {
               <hr />
               <div style={{ display: "flex", justifyContent: "space-around", flexDirection: "column" }}>
                 <div>
-                  <h5>Имя: {firebaseUsers.login ? firebaseUsers.login : user.displayName || "Не указано"}</h5>
+                  <h5>Имя: {user ? firebaseUsers.login : user.displayName || "Не указано"}</h5>
                   <h5>email: {user ? user.email : firebaseUsers.email || "Не указано"}</h5>
-                  <h5>ДР: {firebaseUsers.age ? firebaseUsers.age : "Не указано"}</h5>
+                  <h5>ДР: {user ? firebaseUsers.age : "Не указано"}</h5>
                 </div>
                 <div>
-                  <h5>Фамилия: {firebaseUsers.surname ? firebaseUsers.surname : "Не указано"}</h5>
-                  <h5>Пол: {firebaseUsers.gender ? firebaseUsers.gender : "Не указано"}</h5>
+                  <h5>Фамилия: {user ? firebaseUsers.surname : "Не указано"}</h5>
+                  <h5>Пол: {user ? firebaseUsers.gender : "Не указано"}</h5>
                   <h5>Расположение: Кыргызстан</h5>
                 </div>
               </div>

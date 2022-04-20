@@ -88,12 +88,6 @@ const Header = (props) => {
   const { user } = useContext(Context)
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
-  // const data = doc(db, "users", user.uid);
-  // getDoc(data).then((doc) => {
-  // console.log(doc.data())
-  // })
-
-
   const { id } = useParams;
   const { cartItems, removeFromBasket } = props;
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
@@ -107,6 +101,13 @@ const Header = (props) => {
     setOpen(false);
   };
 
+
+  useEffect(() => {
+    return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
+  })
+
+
+  
   useEffect(() => {}, []);
 
   return (
