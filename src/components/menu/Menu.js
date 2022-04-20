@@ -83,7 +83,10 @@ const AccountMenu = () => {
 
   return (
     <React.Fragment>
-      <Box
+
+      {user ? 
+      (<div>
+              <Box
         sx={{
           display: "flex",
           alignItems: "center",
@@ -137,7 +140,7 @@ const AccountMenu = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-          {user && firebaseUsers.status === true ? (""):(<Link
+          {firebaseUsers.status === true ? (""):(<Link
           style={{
             textDecoration: "none",
             color: "black",
@@ -152,7 +155,7 @@ const AccountMenu = () => {
 
 
         <Divider />
-        {user && firebaseUsers.status === true ? (
+        {firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",
@@ -171,7 +174,7 @@ const AccountMenu = () => {
           ""
         )}
 
-        {user && firebaseUsers.status === true ? (
+        {firebaseUsers.status === true ? (
           <Link
             style={{
               textDecoration: "none",
@@ -199,6 +202,11 @@ const AccountMenu = () => {
           Выйти
         </MenuItem>
       </Menu>
+      </div>)
+        :
+      ("")
+      }
+
     </React.Fragment>
   );
 };
