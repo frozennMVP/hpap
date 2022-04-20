@@ -18,7 +18,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { HOME_ROUTE } from "../../utils/Consts";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase/firebase-config";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc,collection } from "firebase/firestore";
 import { makeStyles } from '@mui/styles';
 
 import GoogleButton from "react-google-button";
@@ -60,6 +60,7 @@ const Register = () => {
   const [age, setAge] = useState("");
   const [greet, setGreet] = useState(false)
   const [error, setError] = useState(false)
+  const [status, setStatus] = useState(Boolean)
 
   const { dispatch, user } = useContext(Context);
 
@@ -91,6 +92,10 @@ const Register = () => {
     try{
      const res = await signInWithPopup(auth, googleProvider)
 
+     await setDoc(doc(db, 'users', res.user.uid),{
+         status: false
+       })
+
     dispatch({ type: "LOGIN_SUCCESS", payload: res.user });
 
     window.location.assign(HOME_ROUTE)
@@ -120,20 +125,19 @@ const Register = () => {
         email,
         password,
       );
-      console.log(res)
-      const uid = res.user.uid
-      setDoc(doc(db, "users", uid), {
+      await setDoc(doc(db, 'users', res.user.uid),{
         login,
         age,
         gender,
         surname,
-        number
+        number,
+        status: false
       })
-      console.log(res)
-      setOpen(true);
-    setTimeout(setOpen, 3000)
       dispatch({ type: "LOGIN_SUCCESS", payload: res.user });
       window.location.assign(HOME_ROUTE)
+      setOpen(true);
+    setTimeout(setOpen, 3000)
+
       setGreet(true)
       setLogin("");
       setEmail("");

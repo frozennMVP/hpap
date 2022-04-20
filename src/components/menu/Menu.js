@@ -34,14 +34,9 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { styled } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 
-
-
-
 import { db } from "../../firebase/firebase-config";
 
 import { getDoc, setDoc, doc } from "firebase/firestore";
-
-
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -57,12 +52,13 @@ const AccountMenu = () => {
   const { user, dispatch } = useContext(Context);
   const [invisible, setInvisible] = useState(false);
 
-  const [firebaseUsers, setFirebaseUsers] = useState({})
+  const [firebaseUsers, setFirebaseUsers] = useState({});
 
   useEffect(() => {
-    return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
-  })
-
+    return getDoc(doc(db, "users", user.uid)).then((doc) =>
+      setFirebaseUsers(doc.data())
+    );
+  });
 
   const handleBadgeVisibility = () => {
     setInvisible(!invisible);
@@ -83,7 +79,6 @@ const AccountMenu = () => {
 
   return (
     <React.Fragment>
-
       {user ? 
       (<div>
               <Box
@@ -140,60 +135,89 @@ const AccountMenu = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-          {firebaseUsers.status === true ? (""):(<Link
-          style={{
-            textDecoration: "none",
-            color: "black",
-          }}
-          to={PROFILE_ROUTE}
-        >
-          <MenuItem>
-            <Avatar /> Profile
-          </MenuItem>
-        </Link>)}
-        
-
-
         <Divider />
-        { firebaseUsers.status === true ? (
-          <Link
-            style={{
-              textDecoration: "none",
-              color: "black",
-            }}
-            to={ADD_ROUTE}
-          >
-            <MenuItem>
-              <ListItemIcon>
-                <AddCircleOutlinedIcon fontSize="small" />
-              </ListItemIcon>
-              Добавить товар
-            </MenuItem>
-          </Link>
-        ) : (
-          ""
-        )}
+          <div>
+            {firebaseUsers.status === true ? (
+              <div>
+                <Link
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+                to={ADD_ROUTE}
+              >
+                <MenuItem>
+                  <ListItemIcon>
+                    <AddCircleOutlinedIcon fontSize="small" />
+                  </ListItemIcon>
+                  Добавить товар
+                </MenuItem>
+              </Link>
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+                to={MESSAGE_ROUTE}
+              >
+                <MenuItem>
+                  <ListItemIcon>
+                    <Badge
+                      color="secondary"
+                      variant="dot"
+                      invisible={invisible}
+                    >
+                      <MailIcon fontSize="small" />
+                    </Badge>
+                  </ListItemIcon>
+                  Сообщения
+                </MenuItem>
+              </Link>
+              </div>
 
-        {firebaseUsers.status === true ? (
-          <Link
-            style={{
-              textDecoration: "none",
-              color: "black",
-            }}
-            to={MESSAGE_ROUTE}
-          >
-            <MenuItem>
-              <ListItemIcon>
-                <Badge color="secondary" variant="dot" invisible={invisible}>
-                  <MailIcon fontSize="small" />
-                </Badge>
-              </ListItemIcon>
-              Сообщения
-            </MenuItem>
-          </Link>
-        ) : (
-          ""
-        )}
+            ) : (
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+                to={PROFILE_ROUTE}
+              >
+                <MenuItem>
+                  <Avatar /> Profile
+                </MenuItem>
+              </Link>
+            )}
+          </div>
+
+{/* 
+          <div>
+            {" "}
+            {firebaseUsers.status === true ? (
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+                to={MESSAGE_ROUTE}
+              >
+                <MenuItem>
+                  <ListItemIcon>
+                    <Badge
+                      color="secondary"
+                      variant="dot"
+                      invisible={invisible}
+                    >
+                      <MailIcon fontSize="small" />
+                    </Badge>
+                  </ListItemIcon>
+                  Сообщения
+                </MenuItem>
+              </Link>
+            ) : (
+              ""
+            )}
+          </div> */}
 
         <MenuItem onClick={handleLogOut}>
           <ListItemIcon>
@@ -203,9 +227,7 @@ const AccountMenu = () => {
         </MenuItem>
       </Menu>
       </div>)
-        :
-      ("")
-      }
+    : ('')}
 
     </React.Fragment>
   );
