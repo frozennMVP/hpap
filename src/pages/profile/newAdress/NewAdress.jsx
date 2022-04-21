@@ -13,7 +13,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import { REST_API } from "../../../utils/urlApi";
 import { db } from "../../../firebase/firebase-config";
 
-import { setDoc, doc, onSnapshot } from "firebase/firestore";
+import { setDoc, doc, onSnapshot, updateDoc } from "firebase/firestore";
 
 import { getDoc } from "firebase/firestore";
 
@@ -50,7 +50,7 @@ const [firebaseUsers, setFirebaseUsers] = useState({})
 
   const handleAddNewAdress = async (e) => {
     e.preventDefault();
-    const res = await setDoc(doc(db, "users", user.uid), {
+    const res = await updateDoc(doc(db, "users", user.uid), {
       login,
       email,
       country,

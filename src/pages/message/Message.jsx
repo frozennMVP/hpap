@@ -31,7 +31,7 @@ const Message = () => {
                 {messages.map(message => (
                     <div className='MessageUnder' key={message.id}>
                         <div className='Message-content'>
-                            <h5>{message.userName} : </h5>
+                            <h5>{message.userName} : {message.userNumber} </h5>
                             <div>
                                 <p>{message.userDate}</p>
                             </div>

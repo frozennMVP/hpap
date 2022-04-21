@@ -8,6 +8,7 @@ import {
   BASKET_PAGE,
   ADMIN_ROUTE,
   FEED_ROUTE,
+  HOME_ROUTE,
 } from "../../utils/Consts";
 import { Context } from "../../context/Context";
 import AccountMenu from "../../components/menu/Menu";
@@ -28,7 +29,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { db } from "../../firebase/firebase-config";
 
 import { setDoc, doc } from "firebase/firestore";
@@ -113,7 +114,18 @@ const Header = (props) => {
   return (
     <div className="Header">
       <div className="underHeader">
+                  <div style={{
+            display: "block"
+          }}>
+            <Link to={HOME_ROUTE}>
+                          <ArrowBackIcon style={{
+                margin: "0 30px"
+              }}></ArrowBackIcon>
+            </Link>
+
+          </div>
         <div className="onePart">
+
           <div>
             <CallIcon
               style={{

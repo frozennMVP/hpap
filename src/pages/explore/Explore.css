@@ -61,7 +61,11 @@
 }
 
 .postDescription{
-    font-family: AktivGrotesk-Regular;
+    font-family: 'Merriweather', serif;
+font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Roboto Slab', serif;
+font-family: 'Ubuntu', sans-serif;
     font-size: 20px;
 }
 

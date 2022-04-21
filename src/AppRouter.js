@@ -68,6 +68,7 @@ const AppRouter = (props) => {
         />
         <Route path="/" element={<Home />} />
         <Route path="/home/:id" element={<Explore addToBasket={addToBasket} removeFromBasket={removeFromBasket} idChangeMode={idChangeMode}
+        
               cartItems={cartItems}
             />
           }

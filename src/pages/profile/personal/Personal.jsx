@@ -18,7 +18,7 @@ import { REST_API } from "../../../utils/urlApi";
 
 import { db } from "../../../firebase/firebase-config";
 
-import {getFirestore, setDoc, doc, onSnapshot, getDoc,querySnapShot } from "firebase/firestore";
+import {getFirestore, setDoc, doc, onSnapshot, getDoc,querySnapShot, updateDoc } from "firebase/firestore";
 
 
 
@@ -66,10 +66,11 @@ const Personal = () => {
   const handleChangePersonal = async(e) => {
     e.preventDefault()
 
-    const res = await setDoc(doc(db, "users", user.uid), {
+    const res = await updateDoc(doc(db, "users", user.uid), {
       login,
       email,
       password,
+      surname,
       age,
       gender,
       country,

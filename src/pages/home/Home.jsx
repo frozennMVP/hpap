@@ -16,6 +16,8 @@ import Review from '../../components/review/Review'
 import { SHOW_ROUTE } from '../../utils/Consts';
 import { REST_API } from '../../utils/urlApi';
 
+import hitSales from '../../images/hitSales.png'
+
 
 
 const Input = styled('input')({
@@ -65,6 +67,17 @@ useEffect(() => {
               className="Card"
               elevation="6"
             >
+              <CardMedia
+              style={{
+                position: "absolute",
+                width: "40px",
+                height: "40px"
+              }}
+                    component="img"
+                    height="430"
+                    image={hitSales}
+                    alt="wait pls"
+                  />
               <CardActionArea className="CardImgFicsHome">
                 <div>
                   <Link to={`/home/${item.id}`}>
