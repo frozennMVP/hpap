@@ -1,1 +1,1 @@
-export const REST_API = `https://hpaptilek.vercel.app/`
+export const REST_API = `https://tilek.herokuapp.com`
