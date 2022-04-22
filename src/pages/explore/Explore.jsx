@@ -50,9 +50,7 @@ const Explore = (props) => {
   const [firebaseUsers, setFirebaseUsers] = useState({})
 
 
-  useEffect(() => {
-    return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
-  })
+
 
   const goBack = () => {
     navigate(-0.5);
@@ -95,6 +93,13 @@ const Explore = (props) => {
     fetchData(id).then((data) => setPost(data));
     goBackAll();
   };
+
+
+
+  useEffect(() => {
+   return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
+  }, [])
+
 
   return (
     <div>
@@ -330,7 +335,7 @@ const Explore = (props) => {
                   >
                     <CardActionArea className="CardImgFicsHome">
                       <div>
-                        <Link to={`/home/${item.id}`}>
+                        <Link to={`/recommend/${item.id}`}>
                           <CardMedia
                             className="itemsImgHome"
                             component="img"
@@ -354,7 +359,7 @@ const Explore = (props) => {
                       <Link
                         className="homeLinkToExplore"
                         key={item.id}
-                        to={`/home/${item.id}`}
+                        to={`/home/${item.id}/recommend/${item.id}`}
                       >
                         {item.name}
                       </Link>

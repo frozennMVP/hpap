@@ -10,6 +10,7 @@ import Home from "./pages/home/Home";
 import Basket from "./pages/basket/Basket";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Recommend from "./pages/explore/Recommend";
 
 
 const AppRouter = (props) => {
@@ -68,11 +69,13 @@ const AppRouter = (props) => {
         />
         <Route path="/" element={<Home />} />
         <Route path="/home/:id" element={<Explore addToBasket={addToBasket} removeFromBasket={removeFromBasket} idChangeMode={idChangeMode}
-        
+
               cartItems={cartItems}
             />
           }
         />
+        <Route path="/recommend" element={<Recommend/>}/>
+        <Route path="/recommend/:id" element={<Recommend/>}/>
 
         <Route path="*" element={<Navigate to={UNDEFINED} />} />
       </Routes>
