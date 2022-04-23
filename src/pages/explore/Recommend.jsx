@@ -100,7 +100,7 @@ const Recommend = (props) => {
     
     
       useEffect(() => {
-       return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
+       return user ? getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data())) : null
       }, [])
 
     return (

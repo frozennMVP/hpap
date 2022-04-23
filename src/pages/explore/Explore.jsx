@@ -52,6 +52,7 @@ const Explore = (props) => {
 
 
 
+
   const goBack = () => {
     navigate(-0.5);
   };
@@ -97,7 +98,7 @@ const Explore = (props) => {
 
 
   useEffect(() => {
-   return getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data()))
+   return user ? getDoc(doc(db, 'users', user.uid)).then(doc => setFirebaseUsers(doc.data())) : null
   }, [])
 
 
